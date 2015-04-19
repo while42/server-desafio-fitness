@@ -1,9 +1,9 @@
 package br.com.while42.treinofitness;
 
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
+//import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+//import org.springframework.security.core.authority.AuthorityUtils;
+//import org.springframework.security.core.context.SecurityContext;
+//import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.Assert;
 
 class SecurityUtils {
@@ -21,7 +21,7 @@ class SecurityUtils {
 		Assert.notNull(username, "Username must not be null!");
 		Assert.notNull(password, "Password must not be null!");
 
-		SecurityContextHolder.getContext().setAuthentication(
-				new UsernamePasswordAuthenticationToken(username, password, AuthorityUtils.createAuthorityList(roles)));
+//		SecurityContextHolder.getContext().setAuthentication(
+//				new UsernamePasswordAuthenticationToken(username, password, AuthorityUtils.createAuthorityList(roles)));
 	}
 }
