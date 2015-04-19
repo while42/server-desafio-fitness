@@ -1,9 +1,12 @@
 package br.com.while42.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Aluno extends Usuario {
 	
-	private Academia academia;
 	private Instrutor instrutor;
+	private List<Treino> treinos = new ArrayList<Treino>();
 
 	public Aluno(String login) {
 		super(login);
@@ -13,15 +16,20 @@ public class Aluno extends Usuario {
 		return instrutor;
 	}
 
-	public void setAcademia(Academia academia) {
-		this.academia = academia;
-	}
-
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
 	}
-
-	public Academia getAcademia() {
-		return academia;
+	
+	public void addTreino(Treino treino) {
+		treinos.add(treino);
+	}
+	
+	public List<Treino> getTreinos() {
+		return treinos;
+	}
+	
+	@Override
+	public String toString() {
+		return getLogin();
 	}
 }
