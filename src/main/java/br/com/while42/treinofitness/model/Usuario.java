@@ -1,4 +1,4 @@
-package br.com.while42.model;
+package br.com.while42.treinofitness.model;
 
 public abstract class Usuario {
 

@@ -3,8 +3,8 @@ package br.com.while42.treinofitness.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.while42.model.Exercicio;
-import br.com.while42.model.Treino;
+import br.com.while42.treinofitness.model.Exercicio;
+import br.com.while42.treinofitness.model.Treino;
 
 public class TreinoTest {
 

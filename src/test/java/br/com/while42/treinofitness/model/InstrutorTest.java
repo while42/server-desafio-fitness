@@ -3,9 +3,9 @@ package br.com.while42.treinofitness.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.while42.model.Academia;
-import br.com.while42.model.Aluno;
-import br.com.while42.model.Instrutor;
+import br.com.while42.treinofitness.model.Academia;
+import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Instrutor;
 
 public class InstrutorTest {
 

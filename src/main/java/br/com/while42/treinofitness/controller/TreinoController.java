@@ -1,8 +1,8 @@
-package br.com.while42.controller;
+package br.com.while42.treinofitness.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.while42.model.Usuario;
+import br.com.while42.treinofitness.model.Usuario;
 
 @RestController
 public class TreinoController {
