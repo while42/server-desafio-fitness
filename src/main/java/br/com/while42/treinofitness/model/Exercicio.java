@@ -1,6 +1,13 @@
 package br.com.while42.treinofitness.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Exercicio {
+	
+	private @Id @GeneratedValue Long id;
 	
 	private String nome;
 	private Integer series;

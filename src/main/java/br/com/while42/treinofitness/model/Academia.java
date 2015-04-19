@@ -3,12 +3,21 @@ package br.com.while42.treinofitness.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public final class Academia implements Cloneable {
 
-	private Long id;
+	private @Id @GeneratedValue Long id;
 	private final String nome;
 
+	@Transient // TODO: <- Falta arrumar
 	private final List<Instrutor> instrutores = new ArrayList<Instrutor>();
+	
+	@Transient // TODO: <- Falta arrumar
 	private final List<Aluno> alunos = new ArrayList<Aluno>();
 
 	public Academia(String nome) {

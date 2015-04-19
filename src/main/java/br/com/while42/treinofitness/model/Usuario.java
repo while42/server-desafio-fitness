@@ -1,10 +1,19 @@
 package br.com.while42.treinofitness.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public abstract class Usuario {
 
-	private Long id;
+	private @Id @GeneratedValue Long id;
+	
 	private final String login;
-	public Academia academia;
+	
+	@Transient // TODO: <- Falta arrumar
+	private Academia academia;
 	
 	public Usuario(String login) {
 		this.login = login;

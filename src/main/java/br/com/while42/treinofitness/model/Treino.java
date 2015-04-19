@@ -3,11 +3,20 @@ package br.com.while42.treinofitness.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Treino {
 
+	private @Id @GeneratedValue Long id;
+	
 	private String nome;
 	private String descricao;
 	
+	@Transient // TODO: <- Falta arrumar
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 
 	public Treino(String nome, String descricao) {
