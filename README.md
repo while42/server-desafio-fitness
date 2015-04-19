@@ -1,3 +1,2 @@
-# server-desafio-fitness
-Maven Run
-	$ mvn spring-boot:run
+# server-treino-fitness
+$ mvn spring-boot:run
