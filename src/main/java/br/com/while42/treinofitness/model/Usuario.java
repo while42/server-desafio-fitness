@@ -18,6 +18,11 @@ public abstract class Usuario {
 	@Transient // TODO: <- Falta arrumar
 	private @JsonIgnore Academia academia;
 	
+	@Deprecated
+	public Usuario() {
+		login = null;
+	}
+	
 	public Usuario(String login) {
 		this.login = login;
 	}

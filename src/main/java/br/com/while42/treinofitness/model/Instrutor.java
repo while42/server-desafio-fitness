@@ -14,6 +14,10 @@ public class Instrutor extends Usuario {
 	@Transient // TODO: <- Falta arrumar
 	public @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
+	@Deprecated
+	public Instrutor() {
+	}
+	
 	public Instrutor(String login) {
 		super(login);
 	}

@@ -19,6 +19,10 @@ public class Treino {
 	@Transient // TODO: <- Falta arrumar
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 
+	@Deprecated
+	public Treino() {
+	}
+	
 	public Treino(String nome, String descricao) {
 		this.nome = nome;
 		this.descricao = descricao;

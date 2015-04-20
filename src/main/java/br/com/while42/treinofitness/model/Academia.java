@@ -22,6 +22,11 @@ public final class Academia implements Cloneable {
 	@Transient // TODO: <- Falta arrumar
 	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
+	@Deprecated
+	public Academia() {
+		nome = null;
+	}
+	
 	public Academia(String nome) {
 		this.nome = nome;
 	}

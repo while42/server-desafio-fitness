@@ -14,6 +14,10 @@ public class Exercicio {
 	private Integer repeticao;
 	private Integer intervalo;
 	
+	@Deprecated
+	public Exercicio() {
+	}
+	
 	public Exercicio(String nome) {
 		this.nome = nome;
 	}

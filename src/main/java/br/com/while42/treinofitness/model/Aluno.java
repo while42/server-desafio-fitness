@@ -8,12 +8,19 @@ import javax.persistence.Transient;
 
 @Entity
 public class Aluno extends Usuario {
-	
-	@Transient // TODO: <- Falta arrumar
+
+	@Transient
+	// TODO: <- Falta arrumar
 	private Instrutor instrutor;
-	
-	@Transient // TODO: <- Falta arrumar
+
+	@Transient
+	// TODO: <- Falta arrumar
 	private List<Treino> treinos = new ArrayList<Treino>();
+
+	@Deprecated
+	public Aluno() {
+		
+	}
 
 	public Aluno(String login) {
 		super(login);
@@ -26,15 +33,15 @@ public class Aluno extends Usuario {
 	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
 	}
-	
+
 	public void addTreino(Treino treino) {
 		treinos.add(treino);
 	}
-	
+
 	public List<Treino> getTreinos() {
 		return treinos;
 	}
-	
+
 	@Override
 	public String toString() {
 		return getLogin();
