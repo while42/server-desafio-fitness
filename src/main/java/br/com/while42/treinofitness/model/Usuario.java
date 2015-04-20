@@ -48,7 +48,7 @@ public abstract class Usuario {
 		return academia;
 	}
 	
-	public void setAcademia(Academia academia) {
+	public final void setAcademia(Academia academia) {
 		this.academia = academia;
 	}
 	

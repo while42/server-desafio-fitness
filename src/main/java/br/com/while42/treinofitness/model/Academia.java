@@ -35,20 +35,27 @@ public class Academia implements Cloneable {
 		return nome;
 	}
 
-	public void addInstrutor(Instrutor instrutor) {
-		instrutor.setAcademia(this);
-		instrutores.add(instrutor);
-	}
 
 	public List<Instrutor> getInstrutores() {
 		return instrutores;
 	}
 
-	public void addAluno(Aluno aluno) {
-		aluno.setAcademia(this);
+	final void addUsuario(Usuario usuario) {
+		if (usuario instanceof Aluno) {
+			addAluno((Aluno) usuario);
+		} else if (usuario instanceof Instrutor) {
+			addInstrutor((Instrutor) usuario);
+		}
+	}
+	
+	public final void addAluno(Aluno aluno) {
 		alunos.add(aluno);
 	}
 
+	public final void addInstrutor(Instrutor instrutor) {
+		instrutores.add(instrutor);
+	}
+	
 	public List<Aluno> getAlunos() {
 		return alunos;
 	}

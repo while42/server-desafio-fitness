@@ -30,7 +30,7 @@ public class Aluno extends Usuario {
 		return instrutor;
 	}
 
-	public void setInstrutor(Instrutor instrutor) {
+	public final void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
 	}
 

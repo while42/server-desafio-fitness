@@ -17,7 +17,7 @@ public class Instrutor extends Usuario {
 	@Deprecated
 	public Instrutor() {
 	}
-	
+
 	public Instrutor(String login) {
 		super(login);
 	}
@@ -26,8 +26,7 @@ public class Instrutor extends Usuario {
 		return alunos;
 	}
 
-	public void addAluno(Aluno aluno) {
-		aluno.setInstrutor(this);
+	public final void addAluno(Aluno aluno) {
 		alunos.add(aluno);
 	}
 

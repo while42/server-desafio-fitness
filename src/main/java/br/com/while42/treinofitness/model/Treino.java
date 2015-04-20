@@ -3,6 +3,7 @@ package br.com.while42.treinofitness.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,7 +21,7 @@ public class Treino {
 	@OneToMany
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Aluno aluno;
 
 	@Deprecated
