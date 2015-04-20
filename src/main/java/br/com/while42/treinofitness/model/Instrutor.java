@@ -6,11 +6,13 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Instrutor extends Usuario {
 
 	@Transient // TODO: <- Falta arrumar
-	public final List<Aluno> alunos = new ArrayList<Aluno>();
+	public @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
 	public Instrutor(String login) {
 		super(login);

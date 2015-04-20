@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public final class Academia implements Cloneable {
 
@@ -15,10 +17,10 @@ public final class Academia implements Cloneable {
 	private final String nome;
 
 	@Transient // TODO: <- Falta arrumar
-	private final List<Instrutor> instrutores = new ArrayList<Instrutor>();
+	private @JsonIgnore final List<Instrutor> instrutores = new ArrayList<Instrutor>();
 	
 	@Transient // TODO: <- Falta arrumar
-	private final List<Aluno> alunos = new ArrayList<Aluno>();
+	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
 	public Academia(String nome) {
 		this.nome = nome;

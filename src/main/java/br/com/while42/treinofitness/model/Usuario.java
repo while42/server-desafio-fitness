@@ -5,15 +5,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public abstract class Usuario {
 
 	private @Id @GeneratedValue Long id;
 	
 	private final String login;
+	private @JsonIgnore String senha;
 	
 	@Transient // TODO: <- Falta arrumar
-	private Academia academia;
+	private @JsonIgnore Academia academia;
 	
 	public Usuario(String login) {
 		this.login = login;
@@ -23,6 +26,14 @@ public abstract class Usuario {
 		return login;
 	}
 	
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
 	public Academia getAcademia() {
 		return academia;
 	}
