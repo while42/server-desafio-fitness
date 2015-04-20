@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/status")
 public class StatusController {
 
 	private static final String timestampStart = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date());
 	
+	@RequestMapping("/status")
 	public String status() {
 		return "iniciado: " + timestampStart;
 	}
