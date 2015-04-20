@@ -17,7 +17,7 @@ public abstract class Usuario {
 	private @JsonIgnore String senha;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
-	private Academia academia;
+	private @JsonIgnore Academia academia;
 	
 	@Deprecated
 	public Usuario() {
@@ -26,6 +26,10 @@ public abstract class Usuario {
 	
 	public Usuario(String login) {
 		this.login = login;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 	
 	public String getLogin() {
