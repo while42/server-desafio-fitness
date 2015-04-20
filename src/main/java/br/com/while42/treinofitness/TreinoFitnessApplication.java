@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Instrutor;
+import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
-import br.com.while42.treinofitness.repository.UsuarioRepository;
+import br.com.while42.treinofitness.repository.AlunoRepository;
+import br.com.while42.treinofitness.repository.InstrutorRepository;
 
 //import org.springframework.security.core.context.SecurityContextHolder;
 
@@ -21,7 +24,8 @@ import br.com.while42.treinofitness.repository.UsuarioRepository;
 @ComponentScan
 public class TreinoFitnessApplication {
 
-	private @Autowired UsuarioRepository usuarioRepository;
+	private @Autowired AlunoRepository alunoRepository;
+	private @Autowired InstrutorRepository instrutorRepository;
 	private @Autowired AcademiaRepository academiaRepository;
 
 	public static void main(String[] args) throws Exception {
@@ -32,9 +36,23 @@ public class TreinoFitnessApplication {
 	@Transactional
 	public void init() {
 		Aluno aluno = new Aluno("Aluno");
-		aluno.setAcademia(new Academia("Academia 1"));
+		
+		Academia academia = new Academia("Academia");
+		Instrutor instrutor = new Instrutor("Instrutor");
+		//Treino treino1 = new Treino("Treino A", "Aerobico");
+		//Treino treino2 = new Treino("Treino B", "Alongamento");
+		
+		//treino1.addExercicio(new Exercicio("Bike 20 min"));
+		//treino1.addExercicio(new Exercicio("Corrida 20 min"));
+		
+		//treino2.addExercicio(new Exercicio("Aula de Yoga"));
+		
+		aluno.setInstrutor(instrutor);
+		aluno.setAcademia(academia);
+		//aluno.addTreino(treino1);
+		//aluno.addTreino(treino2);
 
-		usuarioRepository.save(aluno);
+		alunoRepository.save(aluno);
 
 		// SecurityContextHolder.clearContext();
 	}

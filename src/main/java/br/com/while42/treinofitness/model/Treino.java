@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -18,6 +19,9 @@ public class Treino {
 	
 	@OneToMany
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
+	
+	@ManyToOne
+	private Aluno aluno;
 
 	@Deprecated
 	public Treino() {

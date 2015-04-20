@@ -1,8 +1,10 @@
 package br.com.while42.treinofitness.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Exercicio {
@@ -13,6 +15,9 @@ public class Exercicio {
 	private Integer series;
 	private Integer repeticao;
 	private Integer intervalo;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Treino treino;
 	
 	@Deprecated
 	public Exercicio() {

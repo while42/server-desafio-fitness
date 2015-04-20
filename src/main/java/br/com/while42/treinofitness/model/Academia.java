@@ -11,7 +11,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public final class Academia implements Cloneable {
+public class Academia implements Cloneable {
 
 	private @Id @GeneratedValue Long id;
 	private final String nome;
