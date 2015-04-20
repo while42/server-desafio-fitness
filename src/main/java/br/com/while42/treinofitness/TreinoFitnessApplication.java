@@ -8,7 +8,9 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.repository.AcademiaRepository;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
 //import org.springframework.security.core.context.SecurityContextHolder;
@@ -19,6 +21,7 @@ import br.com.while42.treinofitness.repository.UsuarioRepository;
 public class TreinoFitnessApplication {
 
 	private @Autowired UsuarioRepository usuarioRepository;
+	private @Autowired AcademiaRepository academiaRepository;
 	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(TreinoFitnessApplication.class, args);
@@ -26,8 +29,11 @@ public class TreinoFitnessApplication {
 
 	@PostConstruct
 	public void init() {
-		usuarioRepository.save(new Aluno("Aluno"));
-
+		Academia vip = academiaRepository.save(new Academia("VIP Extreme"));
+		Aluno aluno = new Aluno("Aluno");
+		//aluno.setAcademia(vip);
+		usuarioRepository.save(aluno);
+		
 		// SecurityContextHolder.clearContext();
 	}
 }

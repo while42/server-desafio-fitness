@@ -1,9 +1,10 @@
 package br.com.while42.treinofitness.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,8 +16,8 @@ public abstract class Usuario {
 	private final String login;
 	private @JsonIgnore String senha;
 	
-	@Transient // TODO: <- Falta arrumar
-	private @JsonIgnore Academia academia;
+	@ManyToOne(cascade=CascadeType.ALL)
+	private Academia academia;
 	
 	@Deprecated
 	public Usuario() {

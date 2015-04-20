@@ -3,18 +3,18 @@ package br.com.while42.treinofitness.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.Transient;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Aluno extends Usuario {
 
-	@Transient
-	// TODO: <- Falta arrumar
+	@ManyToOne(cascade=CascadeType.ALL)
 	private Instrutor instrutor;
 
-	@Transient
-	// TODO: <- Falta arrumar
+	@OneToMany
 	private List<Treino> treinos = new ArrayList<Treino>();
 
 	@Deprecated

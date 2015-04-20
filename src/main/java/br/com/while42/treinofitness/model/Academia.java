@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,10 +16,10 @@ public final class Academia implements Cloneable {
 	private @Id @GeneratedValue Long id;
 	private final String nome;
 
-	@Transient // TODO: <- Falta arrumar
+	@OneToMany
 	private @JsonIgnore final List<Instrutor> instrutores = new ArrayList<Instrutor>();
 	
-	@Transient // TODO: <- Falta arrumar
+	@OneToMany
 	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
 	@Deprecated
