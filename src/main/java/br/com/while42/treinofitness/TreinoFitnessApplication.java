@@ -30,8 +30,11 @@ public class TreinoFitnessApplication {
 	@PostConstruct
 	public void init() {
 		Academia vip = academiaRepository.save(new Academia("VIP Extreme"));
+		academiaRepository.save(vip);
+		
 		Aluno aluno = new Aluno("Aluno");
 		//aluno.setAcademia(vip);
+		
 		usuarioRepository.save(aluno);
 		
 		// SecurityContextHolder.clearContext();

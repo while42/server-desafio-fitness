@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Treino {
@@ -16,7 +16,7 @@ public class Treino {
 	private String nome;
 	private String descricao;
 	
-	@Transient // TODO: <- Falta arrumar
+	@OneToMany
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 
 	@Deprecated
