@@ -42,7 +42,7 @@ public class AcademiaController {
 		return new ResponseEntity<>(null, HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+	@RequestMapping(value = "/", method = RequestMethod.PUT)
 	public ResponseEntity<?> update(Academia academia) {
 		academiaRepository.save(academia);
 		return new ResponseEntity<>(null, HttpStatus.OK);
