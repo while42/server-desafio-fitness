@@ -35,6 +35,10 @@ public class Exercicio {
 		this.series = series;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	public Integer getRepeticao() {
 		return repeticao;
 	}
