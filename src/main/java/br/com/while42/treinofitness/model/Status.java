@@ -13,6 +13,10 @@ public class Status {
 		}
 	}
 	
+	public static String getTimestampStart() {
+		return timestampStartServer;
+	}
+	
 	public String getStartedTime() {
 		return timestampStartServer;
 	}
