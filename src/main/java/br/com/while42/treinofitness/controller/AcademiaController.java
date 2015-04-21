@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Instrutor;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 
 @RestController
@@ -50,7 +51,7 @@ public class AcademiaController {
 	}
 	
 	@RequestMapping(value = "/{academiaId}/instrutor/todos", method = RequestMethod.GET)
-	public ResponseEntity<List<Aluno>> instrutores(@PathVariable String academiaId) {
-		return new ResponseEntity<List<Aluno>>(academiaRepository.findOne(Long.valueOf(academiaId)).getAlunos(), HttpStatus.OK);
+	public ResponseEntity<List<Instrutor>> instrutores(@PathVariable String academiaId) {
+		return new ResponseEntity<List<Instrutor>>(academiaRepository.findOne(Long.valueOf(academiaId)).getInstrutores(), HttpStatus.OK);
 	}
 }

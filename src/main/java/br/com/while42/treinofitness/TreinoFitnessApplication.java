@@ -49,6 +49,9 @@ public class TreinoFitnessApplication {
 		
 		treino2.addExercicio(new Exercicio("Aula de Yoga"));
 		
+		academia.addInstrutor(instrutor);
+		academia.addAluno(aluno);
+		
 		aluno.setInstrutor(instrutor);
 		aluno.setAcademia(academia);
 		
