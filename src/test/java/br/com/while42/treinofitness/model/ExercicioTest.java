@@ -9,13 +9,13 @@ public class ExercicioTest {
 
 	@Test
 	public void testGetNome() {
-		Exercicio exercicio = new Exercicio("exercicio");
+		Exercicio exercicio = new ExercicioRepeticoesComPeso("exercicio", 10, 11);
 		Assert.assertEquals("exercicio", exercicio.getNome());
 	}
 
 	@Test
 	public void testToString() {
-		Exercicio exercicio = new Exercicio("exercicio");
+		Exercicio exercicio = new ExercicioRepeticoesComPeso("exercicio", 10, 11);
 		Assert.assertEquals("exercicio", exercicio.toString());
 	}
 

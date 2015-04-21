@@ -7,15 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Exercicio {
+public abstract class Exercicio {
 	
 	private @Id @GeneratedValue Long id;
-	
 	private String nome;
-	private Integer series;
-	private Integer repeticao;
-	private Integer intervalo;
-	
+
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
 	
@@ -29,30 +25,6 @@ public class Exercicio {
 
 	public Long getId() {
 		return id;
-	}
-
-	public Integer getSeries() {
-		return series;
-	}
-
-	public void setSeries(Integer series) {
-		this.series = series;
-	}
-
-	public Integer getRepeticao() {
-		return repeticao;
-	}
-
-	public void setRepeticao(Integer repeticao) {
-		this.repeticao = repeticao;
-	}
-
-	public Integer getIntervalo() {
-		return intervalo;
-	}
-
-	public void setIntervalo(Integer intervalo) {
-		this.intervalo = intervalo;
 	}
 
 	public String getNome() {
