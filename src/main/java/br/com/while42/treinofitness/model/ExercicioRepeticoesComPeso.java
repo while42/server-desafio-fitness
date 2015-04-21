@@ -5,24 +5,28 @@ import javax.persistence.Entity;
 @Entity
 public class ExercicioRepeticoesComPeso extends Exercicio {
 	
-	private int repeticoes;
+	private long repeticoes;
 	private double peso;
 
 	@Deprecated
 	public ExercicioRepeticoesComPeso() {
 	}
+	
+	public ExercicioRepeticoesComPeso(String nome, long repeticoes, double peso) {
+		this(nome, MINIMO_SERIES, repeticoes, peso);
+	}
 
-	public ExercicioRepeticoesComPeso(String nome, int repeticoes, double peso) {
-		super(nome);
+	public ExercicioRepeticoesComPeso(String nome, long series, long repeticoes, double peso) {
+		super(nome, series);
 		this.repeticoes = repeticoes;
 		this.peso = peso;
 	}
 
-	public int getRepeticoes() {
+	public long getRepeticoes() {
 		return repeticoes;
 	}
 	
-	public void setRepeticoes(int repeticoes) {
+	public void setRepeticoes(long repeticoes) {
 		this.repeticoes = repeticoes;
 	}
 	

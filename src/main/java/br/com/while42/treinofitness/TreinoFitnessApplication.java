@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Exercicio;
 import br.com.while42.treinofitness.model.ExercicioRepeticoesComPeso;
+import br.com.while42.treinofitness.model.ExercicioTempo;
 import br.com.while42.treinofitness.model.Instrutor;
 import br.com.while42.treinofitness.model.Status;
 import br.com.while42.treinofitness.model.Treino;
@@ -44,12 +44,12 @@ public class TreinoFitnessApplication {
 		Academia academia = new Academia("Academia");
 		Instrutor instrutor = new Instrutor("Instrutor");
 		Treino treino1 = new Treino("Treino A", "Aerobico");
-		Treino treino2 = new Treino("Treino B", "Alongamento");
+		Treino treino2 = new Treino("Treino B", "Forca");
 		
-		treino1.addExercicio(new ExercicioRepeticoesComPeso("Bike 20 min", 10, 10));
-		treino1.addExercicio(new ExercicioRepeticoesComPeso("Corrida 20 min", 10, 10));
+		treino1.addExercicio(new ExercicioTempo("Bike", 20));
+		treino1.addExercicio(new ExercicioTempo("Corrida", 20));
 		
-		treino2.addExercicio(new ExercicioRepeticoesComPeso("Aula de Yoga", 10, 10));
+		treino2.addExercicio(new ExercicioRepeticoesComPeso("Leg Press 45 graus", 4, 10, 60));
 		
 		// TODO: A necessidade de colocar o Aluno na Academia e setar a Academia no Aluno eh um ponto  
 		// que ainda nao esta 100% finalizado. O mesmo vale para o relacionamento Aluno <-> Instrutor 

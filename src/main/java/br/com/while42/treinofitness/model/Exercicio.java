@@ -9,8 +9,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public abstract class Exercicio {
 	
+	public static final long MINIMO_SERIES = 1;
+	
 	private @Id @GeneratedValue Long id;
 	private String nome;
+	private long series = MINIMO_SERIES;
 
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
@@ -19,8 +22,9 @@ public abstract class Exercicio {
 	public Exercicio() {
 	}
 	
-	public Exercicio(String nome) {
+	public Exercicio(String nome, long series) {
 		this.nome = nome;
+		this.series = series;
 	}
 
 	public Long getId() {
@@ -31,8 +35,16 @@ public abstract class Exercicio {
 		return nome;
 	}
 	
+	public final void setSeries(long series) {
+		this.series = series;
+	}
+	
+	public final long getSeries() {
+		return series;
+	}
+	
 	@Override
 	public String toString() {
-		return nome;
+		return series + "x " + nome;
 	}
 }
