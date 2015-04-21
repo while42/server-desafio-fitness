@@ -18,7 +18,7 @@ public class AcademiaController {
 	private @Autowired AcademiaRepository academiaRepository;
 
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public ResponseEntity<Iterable<Academia> > lista(){
+	public ResponseEntity<Iterable<Academia>> lista(){
 		return new ResponseEntity<Iterable<Academia>>(academiaRepository.findAll(), HttpStatus.OK);
 	}
 	
@@ -33,18 +33,15 @@ public class AcademiaController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public ResponseEntity<?> add(Academia academia) {
-		if (academia.getId() != null) {
-			return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+	public ResponseEntity<?> save(Academia academia) {
+		HttpStatus httpStatus = HttpStatus.OK;
+		if (academia.getId() == null) {
+			httpStatus = HttpStatus.CREATED;
 		}
+		
 		academiaRepository.save(academia);
-		return new ResponseEntity<>(null, HttpStatus.CREATED);
+		return new ResponseEntity<>(null, httpStatus);
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.PUT)
-	public ResponseEntity<?> update(Academia academia) {
-		academiaRepository.save(academia);
-		return new ResponseEntity<>(null, HttpStatus.OK);
-	}
 }
