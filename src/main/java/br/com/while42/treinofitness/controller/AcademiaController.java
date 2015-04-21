@@ -37,12 +37,16 @@ public class AcademiaController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Academia academia) {
+		if (academia == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+		
 		HttpStatus httpStatus = (academia.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
 		
-		academiaRepository.save(academia);
-		return new ResponseEntity<>(null, httpStatus);
+		academia = academiaRepository.save(academia);
+		return new ResponseEntity<Academia>(academia, httpStatus);
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
