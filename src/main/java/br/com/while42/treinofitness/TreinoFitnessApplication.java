@@ -53,6 +53,13 @@ public class TreinoFitnessApplication {
 		//aluno.addTreino(treino2);
 
 		alunoRepository.save(aluno);
+		
+		Instrutor instrutor2 = new Instrutor("Instrutor 2");
+		Aluno aluno2 = new Aluno("Aluno 2");
+		
+		instrutor2.addAluno(aluno2);
+		
+		instrutorRepository.save(instrutor2);
 
 		// SecurityContextHolder.clearContext();
 	}

@@ -21,7 +21,7 @@ public class Treino {
 	@OneToMany
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Aluno aluno;
 
 	@Deprecated

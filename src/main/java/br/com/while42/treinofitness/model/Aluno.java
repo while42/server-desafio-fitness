@@ -11,10 +11,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Aluno extends Usuario {
 
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Instrutor instrutor;
 
-	@OneToMany
+	@OneToMany(cascade=CascadeType.PERSIST)
 	private List<Treino> treinos = new ArrayList<Treino>();
 
 	@Deprecated
