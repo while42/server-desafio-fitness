@@ -33,7 +33,7 @@ public class InstrutorController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{instrutorId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Instrutor instrutor) {
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (instrutor.getId() == null) {

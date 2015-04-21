@@ -32,7 +32,7 @@ public class ExercicioController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{exercicioId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Exercicio exercicio) {
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (exercicio.getId() == null) {

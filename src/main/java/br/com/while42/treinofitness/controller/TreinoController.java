@@ -35,7 +35,7 @@ public class TreinoController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{treinoId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Treino treino) {
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (treino.getId() == null) {

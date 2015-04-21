@@ -33,7 +33,7 @@ public class AlunoController {
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/{alunoId}", method = RequestMethod.POST)
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Aluno aluno) {
 		HttpStatus httpStatus = HttpStatus.OK;
 		if (aluno.getId() == null) {
