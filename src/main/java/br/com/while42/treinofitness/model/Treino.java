@@ -33,16 +33,16 @@ public class Treino {
 		this.descricao = descricao;
 	}
 
+	public Long getId(){
+		return id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public String getDescricao() {
 		return descricao;
-	}
-	
-	public Long getId(){
-		return id;
 	}
 	
 	public void addExercicio(Exercicio exercicio) {

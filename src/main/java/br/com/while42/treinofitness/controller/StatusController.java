@@ -1,20 +1,19 @@
 package br.com.while42.treinofitness.controller;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@EnableAutoConfiguration
-public class StatusController {
+import br.com.while42.treinofitness.model.Status;
 
-	private static final String timestampStart = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date());
+@RestController
+@RequestMapping("/status")
+public class StatusController {
 	
-	@RequestMapping("/status")
-	public String status() {
-		return "iniciado: " + timestampStart;
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<Status> status() {
+		return new ResponseEntity<Status>(new Status(), HttpStatus.OK);
 	}
 }

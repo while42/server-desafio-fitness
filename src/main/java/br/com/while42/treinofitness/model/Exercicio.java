@@ -27,16 +27,16 @@ public class Exercicio {
 		this.nome = nome;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	public Integer getSeries() {
 		return series;
 	}
 
 	public void setSeries(Integer series) {
 		this.series = series;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public Integer getRepeticao() {

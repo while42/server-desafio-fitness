@@ -12,6 +12,7 @@ import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.model.Exercicio;
 import br.com.while42.treinofitness.model.Instrutor;
+import br.com.while42.treinofitness.model.Status;
 import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 import br.com.while42.treinofitness.repository.AlunoRepository;
@@ -34,6 +35,8 @@ public class TreinoFitnessApplication {
 
 	@PostConstruct
 	public void init() {
+		Status.markStartServer();
+		
 		Aluno aluno = new Aluno("Aluno");
 		
 		Academia academia = new Academia("Academia");

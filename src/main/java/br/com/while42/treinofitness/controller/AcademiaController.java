@@ -35,10 +35,7 @@ public class AcademiaController {
 
 	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
 	public ResponseEntity<?> save(Academia academia) {
-		HttpStatus httpStatus = HttpStatus.OK;
-		if (academia.getId() == null) {
-			httpStatus = HttpStatus.CREATED;
-		}
+		HttpStatus httpStatus = (academia.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
 		
 		academiaRepository.save(academia);
 		return new ResponseEntity<>(null, httpStatus);
