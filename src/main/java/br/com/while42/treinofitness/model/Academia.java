@@ -31,10 +31,13 @@ public class Academia implements Cloneable {
 		this.nome = nome;
 	}
 
+	public Long getId() {
+		return id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
-
 
 	public List<Instrutor> getInstrutores() {
 		return instrutores;
@@ -65,4 +68,5 @@ public class Academia implements Cloneable {
 	public String toString() {
 		return getNome();
 	}
+
 }
