@@ -41,6 +41,10 @@ public class Treino {
 		return descricao;
 	}
 	
+	public Long getId(){
+		return id;
+	}
+	
 	public void addExercicio(Exercicio exercicio) {
 		exercicios.add(exercicio);
 	}
