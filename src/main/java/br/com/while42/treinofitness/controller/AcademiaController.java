@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Academia;
+import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 
 @RestController
@@ -41,4 +44,13 @@ public class AcademiaController {
 		return new ResponseEntity<>(null, httpStatus);
 	}
 	
+	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
+	public ResponseEntity<List<Aluno>> alunos(@PathVariable String academiaId) {
+		return new ResponseEntity<List<Aluno>>(academiaRepository.findOne(Long.valueOf(academiaId)).getAlunos(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{academiaId}/instrutor/todos", method = RequestMethod.GET)
+	public ResponseEntity<List<Aluno>> instrutores(@PathVariable String academiaId) {
+		return new ResponseEntity<List<Aluno>>(academiaRepository.findOne(Long.valueOf(academiaId)).getAlunos(), HttpStatus.OK);
+	}
 }
