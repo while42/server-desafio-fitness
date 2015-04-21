@@ -21,7 +21,17 @@ public class AcademiaController {
 	}
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
-	public Academia academia(@PathVariable String academiaId) {
+	public Academia get(@PathVariable String academiaId) {
 		return academiaRepository.findOne(Long.valueOf(academiaId));
+	}
+	
+	@RequestMapping(value = "/{academiaId}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable String academiaId) {
+		academiaRepository.delete(Long.valueOf(academiaId));
+	}
+
+	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
+	public void update(Academia academia) {
+		academiaRepository.save(academia);
 	}
 }
