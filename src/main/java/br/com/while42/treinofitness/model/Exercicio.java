@@ -16,7 +16,7 @@ public class Exercicio {
 	private Integer repeticao;
 	private Integer intervalo;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
 	
 	@Deprecated

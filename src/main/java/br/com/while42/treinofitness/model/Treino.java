@@ -18,7 +18,7 @@ public class Treino {
 	private String nome;
 	private String descricao;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.PERSIST)
 	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)

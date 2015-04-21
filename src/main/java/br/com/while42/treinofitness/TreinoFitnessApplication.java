@@ -49,8 +49,8 @@ public class TreinoFitnessApplication {
 		aluno.setInstrutor(instrutor);
 		aluno.setAcademia(academia);
 		
-		//aluno.addTreino(treino1);
-		//aluno.addTreino(treino2);
+		aluno.addTreino(treino1);
+		aluno.addTreino(treino2);
 
 		alunoRepository.save(aluno);
 		
