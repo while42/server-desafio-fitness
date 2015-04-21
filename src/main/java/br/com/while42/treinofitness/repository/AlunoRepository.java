@@ -1,5 +1,9 @@
 package br.com.while42.treinofitness.repository;
 
-public interface AlunoRepository extends UsuarioRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.while42.treinofitness.model.Aluno;
+
+public interface AlunoRepository extends CrudRepository<Aluno, Long> {
 
 }

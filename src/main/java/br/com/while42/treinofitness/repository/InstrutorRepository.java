@@ -1,5 +1,9 @@
 package br.com.while42.treinofitness.repository;
 
-public interface InstrutorRepository extends UsuarioRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import br.com.while42.treinofitness.model.Instrutor;
+
+public interface InstrutorRepository extends CrudRepository<Instrutor, Long> {
 
 }
