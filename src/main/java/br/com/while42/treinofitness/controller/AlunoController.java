@@ -1,6 +1,8 @@
 package br.com.while42.treinofitness.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,13 +18,29 @@ public class AlunoController {
 	private @Autowired AlunoRepository alunoRepository;
 
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public Iterable<Aluno> lista(){
-		return alunoRepository.findAll();
-	}
+	public ResponseEntity<Iterable<Aluno>> all(){
+		return new ResponseEntity<Iterable<Aluno>>(alunoRepository.findAll(), HttpStatus.OK);
+	} 
 	
 	@RequestMapping(value = "/{alunoId}", method = RequestMethod.GET)
-	public Aluno aluno(@PathVariable String alunoId) {
-		return alunoRepository.findOne(Long.valueOf(alunoId));
+	public ResponseEntity<Aluno> get(@PathVariable String alunoId) {
+		return new ResponseEntity<Aluno>(alunoRepository.findOne(Long.valueOf(alunoId)), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{alunoId}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> delete(@PathVariable String alunoId) {
+		alunoRepository.delete(Long.valueOf(alunoId));
+		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
+	@RequestMapping(value = "/{alunoId}", method = RequestMethod.POST)
+	public ResponseEntity<?> save(Aluno aluno) {
+		HttpStatus httpStatus = HttpStatus.OK;
+		if (aluno.getId() == null) {
+			httpStatus = HttpStatus.CREATED;
+		}
+		
+		alunoRepository.save(aluno);
+		return new ResponseEntity<>(null, httpStatus);
+	}
 }
