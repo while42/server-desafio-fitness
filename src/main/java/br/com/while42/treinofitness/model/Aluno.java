@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Aluno extends Usuario {
+public class Aluno extends AbstractUsuario {
 
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Instrutor instrutor;

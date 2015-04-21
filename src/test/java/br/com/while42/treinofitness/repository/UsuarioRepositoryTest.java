@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Usuario;
+import br.com.while42.treinofitness.model.AbstractUsuario;
 
 public class UsuarioRepositoryTest {
 
@@ -25,8 +25,8 @@ public class UsuarioRepositoryTest {
 				.createEntityManagerFactory("jpa.sample.plain");
 		em = factory.createEntityManager();
 
-		usuarioRepository = (UsuarioRepository) new SimpleJpaRepository<Usuario, Long>(
-				Usuario.class, em);
+		usuarioRepository = (UsuarioRepository) new SimpleJpaRepository<AbstractUsuario, Long>(
+				AbstractUsuario.class, em);
 
 		em.getTransaction().begin();
 	}

@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public abstract class Usuario {
+public abstract class AbstractUsuario {
 
 	private @Id @GeneratedValue Long id;
 	
@@ -20,11 +20,11 @@ public abstract class Usuario {
 	private @JsonIgnore Academia academia;
 	
 	@Deprecated
-	public Usuario() {
+	public AbstractUsuario() {
 		login = null;
 	}
 	
-	public Usuario(String login) {
+	public AbstractUsuario(String login) {
 		this.login = login;
 	}
 	

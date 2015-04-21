@@ -37,6 +37,7 @@ public class TreinoFitnessApplication {
 	public void init() {
 		Status.markStartServer();
 		
+		// TODO: Somente para testes
 		Aluno aluno = new Aluno("Aluno");
 		
 		Academia academia = new Academia("Academia");
@@ -48,6 +49,9 @@ public class TreinoFitnessApplication {
 		treino1.addExercicio(new Exercicio("Corrida 20 min"));
 		
 		treino2.addExercicio(new Exercicio("Aula de Yoga"));
+		
+		// TODO: A necessidade de colocar o Aluno na Academia e setar a Academia no Aluno eh um ponto  
+		// que ainda nao esta 100% finalizado. O mesmo vale para o relacionamento Aluno <-> Instrutor 
 		
 		academia.addInstrutor(instrutor);
 		academia.addAluno(aluno);
@@ -64,6 +68,7 @@ public class TreinoFitnessApplication {
 		Aluno aluno2 = new Aluno("Aluno 2");
 		
 		instrutor2.addAluno(aluno2);
+		aluno2.setInstrutor(instrutor2);
 		
 		instrutorRepository.save(instrutor2);
 
