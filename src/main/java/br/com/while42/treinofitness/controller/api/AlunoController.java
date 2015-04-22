@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.controller;
+package br.com.while42.treinofitness.controller.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @RestController
-@RequestMapping("/aluno")
+@RequestMapping(ApiControllerConfiguration.BASE_URL_API + "/aluno")
 public class AlunoController {
 	
 	private @Autowired AlunoRepository alunoRepository;

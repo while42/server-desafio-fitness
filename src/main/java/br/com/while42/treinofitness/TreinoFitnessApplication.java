@@ -5,8 +5,8 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
@@ -21,7 +21,7 @@ import br.com.while42.treinofitness.repository.InstrutorRepository;
 
 //import org.springframework.security.core.context.SecurityContextHolder;
 
-@RestController
+@SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan
 public class TreinoFitnessApplication {

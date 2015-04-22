@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.controller;
+package br.com.while42.treinofitness.controller.api;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import br.com.while42.treinofitness.model.Instrutor;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 
 @RestController
-@RequestMapping("/academia")
+@RequestMapping(ApiControllerConfiguration.BASE_URL_API + "/academia")
 public class AcademiaController {
 	
 	private @Autowired AcademiaRepository academiaRepository;
