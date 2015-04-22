@@ -44,6 +44,6 @@ public class Aluno extends AbstractUsuario {
 
 	@Override
 	public String toString() {
-		return getLogin();
+		return getUsername();
 	}
 }

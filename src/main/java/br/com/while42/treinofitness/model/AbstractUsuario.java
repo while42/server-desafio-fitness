@@ -13,7 +13,7 @@ public abstract class AbstractUsuario {
 
 	private @Id @GeneratedValue Long id;
 	
-	private final String login;
+	private final String username;
 	private @JsonIgnore String senha;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -21,19 +21,19 @@ public abstract class AbstractUsuario {
 	
 	@Deprecated
 	public AbstractUsuario() {
-		login = null;
+		username = null;
 	}
 	
-	public AbstractUsuario(String login) {
-		this.login = login;
+	public AbstractUsuario(String username) {
+		this.username = username;
 	}
 	
 	public Long getId() {
 		return id;
 	}
 	
-	public String getLogin() {
-		return login;
+	public String getUsername() {
+		return username;
 	}
 	
 	public String getSenha() {
@@ -54,6 +54,6 @@ public abstract class AbstractUsuario {
 	
 	@Override
 	public String toString() {
-		return getLogin();
+		return getUsername();
 	}
 }

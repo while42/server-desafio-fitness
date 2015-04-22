@@ -33,6 +33,6 @@ public class Instrutor extends AbstractUsuario {
 
 	@Override
 	public String toString() {
-		return getLogin();
+		return getUsername();
 	}
 }
