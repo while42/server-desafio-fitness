@@ -29,7 +29,7 @@ public class TreinoFitnessApplication {
 	private @Autowired AlunoRepository alunoRepository;
 	private @Autowired InstrutorRepository instrutorRepository;
 	private @Autowired AcademiaRepository academiaRepository;
-
+	
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(TreinoFitnessApplication.class, args);
 	}
@@ -38,41 +38,68 @@ public class TreinoFitnessApplication {
 	public void init() {
 		Status.markStartServer();
 		
-		// TODO: Somente para testes
-		Aluno aluno = new Aluno("Aluno");
+		// TODO: Somente para desenvolvimento
 		
+		Aluno aluno = new Aluno("Aluno");
+
 		Academia academia = new Academia("Academia");
 		Instrutor instrutor = new Instrutor("Instrutor");
 		Treino treino1 = new Treino("Treino A", "Aerobico");
 		Treino treino2 = new Treino("Treino B", "Forca");
-		
+
 		treino1.addExercicio(new ExercicioTempo("Bike", 20));
 		treino1.addExercicio(new ExercicioTempo("Corrida", 20));
-		
-		treino2.addExercicio(new ExercicioRepeticoesComPeso("Leg Press 45 graus", 4, 10, 60));
-		
-		// TODO: A necessidade de colocar o Aluno na Academia e setar a Academia no Aluno eh um ponto  
-		// que ainda nao esta 100% finalizado. O mesmo vale para o relacionamento Aluno <-> Instrutor 
-		
+
+		treino2.addExercicio(new ExercicioRepeticoesComPeso(
+				"Leg Press 45 graus", 4, 10, 60));
+
+		// TODO: A necessidade de colocar o Aluno na Academia e setar a Academia
+		// no Aluno eh um ponto
+		// que ainda nao esta 100% finalizado. O mesmo vale para o
+		// relacionamento Aluno <-> Instrutor
+
 		academia.addInstrutor(instrutor);
 		academia.addAluno(aluno);
-		
+
 		aluno.setInstrutor(instrutor);
 		aluno.setAcademia(academia);
-		
+
 		aluno.addTreino(treino1);
 		aluno.addTreino(treino2);
 
 		alunoRepository.save(aluno);
-		
+
+		for (int i = 1; i < 5; i++) {
+			Aluno alunoX = new Aluno("Aluno Lero #" + i);
+			
+			Academia academiaX = new Academia("Academia #" + i);
+			Instrutor instrutorX = new Instrutor("Instrutor #" + i);
+			Treino treino1X = new Treino("Treino A", "Aerobico");
+			Treino treino2X = new Treino("Treino B", "Forca");
+
+			treino1X.addExercicio(new ExercicioTempo("Bike", 20));
+			treino1X.addExercicio(new ExercicioTempo("Corrida", 20));
+
+			treino2X.addExercicio(new ExercicioRepeticoesComPeso(
+					"Leg Press 45 graus", 4, 10, 60));
+			
+			alunoX.setInstrutor(instrutorX);
+			alunoX.setAcademia(academiaX);
+
+			alunoX.addTreino(treino1X);
+			alunoX.addTreino(treino2X);
+			
+			alunoRepository.save(alunoX);
+		}
+
 		Instrutor instrutor2 = new Instrutor("Instrutor 2");
 		Aluno aluno2 = new Aluno("Aluno 2");
-		
+
 		instrutor2.addAluno(aluno2);
 		aluno2.setInstrutor(instrutor2);
-		
-		instrutorRepository.save(instrutor2);
 
+		instrutorRepository.save(instrutor2);
+		
 		// SecurityContextHolder.clearContext();
 	}
 }
