@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lista de Alunos</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<table border="1">
+		<tr th:each="aluno : ${alunos}">
+			<td th:text="${{aluno.id}}"></td>
+			<td th:text="${{aluno.username}}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>
