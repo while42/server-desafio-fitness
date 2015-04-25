@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,13 +34,14 @@ public class ExercicioController {
 	}
 
 	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
-	public ResponseEntity<?> save(Exercicio exercicio) {
-		HttpStatus httpStatus = HttpStatus.OK;
-		if (exercicio.getId() == null) {
-			httpStatus = HttpStatus.CREATED;
+	public ResponseEntity<?> save(@RequestBody Exercicio exercicio) {
+		if (exercicio == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
-
+		
+		HttpStatus httpStatus = (exercicio.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
+	
 		exercicioRepository.save(exercicio);
-		return new ResponseEntity<>(null, httpStatus);
+		return new ResponseEntity<Exercicio>(exercicio, httpStatus);
 	}
 }

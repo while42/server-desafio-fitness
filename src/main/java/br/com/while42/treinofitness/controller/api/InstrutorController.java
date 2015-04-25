@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,13 +35,13 @@ public class InstrutorController {
 	}
 
 	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
-	public ResponseEntity<?> save(Instrutor instrutor) {
-		HttpStatus httpStatus = HttpStatus.OK;
+	public ResponseEntity<?> save(@RequestBody Instrutor instrutor) {
 		if (instrutor.getId() == null) {
-			httpStatus = HttpStatus.CREATED;
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 
+		HttpStatus httpStatus = (instrutor.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
 		instrutorRepository.save(instrutor);
-		return new ResponseEntity<>(null, httpStatus);
+		return new ResponseEntity<Instrutor>(instrutor, httpStatus);
 	}
 }

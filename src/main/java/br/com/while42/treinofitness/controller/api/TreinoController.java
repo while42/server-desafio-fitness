@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,14 +37,15 @@ public class TreinoController {
 	}
 
 	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
-	public ResponseEntity<?> save(Treino treino) {
-		HttpStatus httpStatus = HttpStatus.OK;
-		if (treino.getId() == null) {
-			httpStatus = HttpStatus.CREATED;
+	public ResponseEntity<?> save(@RequestBody Treino treino) {
+		if (treino == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		
+		HttpStatus httpStatus = (treino.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
 
 		treinoRepository.save(treino);
-		return new ResponseEntity<>(null, httpStatus);
+		return new ResponseEntity<Treino>(treino, httpStatus);
 	}
 }
 
