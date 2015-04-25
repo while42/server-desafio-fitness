@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
@@ -34,13 +36,14 @@ public class AlunoController {
 	}
 
 	@RequestMapping(value = "/", method = {RequestMethod.POST, RequestMethod.PUT})
-	public ResponseEntity<?> save(Aluno aluno) {
-		HttpStatus httpStatus = HttpStatus.OK;
-		if (aluno.getId() == null) {
-			httpStatus = HttpStatus.CREATED;
+	public ResponseEntity<?> save(@RequestBody Aluno aluno) {
+		if (aluno == null) {
+			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
-		alunoRepository.save(aluno);
-		return new ResponseEntity<>(null, httpStatus);
+		HttpStatus httpStatus = (aluno.getId() == null) ? HttpStatus.CREATED : HttpStatus.OK;
+		
+		aluno = alunoRepository.save(aluno);
+		return new ResponseEntity<Aluno>(aluno, httpStatus);
 	}
 }
