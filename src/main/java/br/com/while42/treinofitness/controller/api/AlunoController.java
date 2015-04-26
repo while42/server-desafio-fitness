@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
