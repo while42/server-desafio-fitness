@@ -3,8 +3,6 @@ package br.com.while42.treinofitness.model;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.while42.treinofitness.model.Exercicio;
-
 public class ExercicioTest {
 
 	@Test
@@ -16,7 +14,7 @@ public class ExercicioTest {
 	@Test
 	public void testToString() {
 		Exercicio exercicio = new ExercicioRepeticoesComPeso("exercicio", 10, 11);
-		Assert.assertEquals("exercicio", exercicio.toString());
+		Assert.assertEquals(Exercicio.MINIMO_SERIES + "x exercicio", exercicio.toString());
 	}
 
 }

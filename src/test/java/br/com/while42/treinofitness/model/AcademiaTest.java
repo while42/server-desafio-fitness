@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.model;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,9 +18,12 @@ public class AcademiaTest {
 		Academia academia = new Academia("Academia de Teste");
 		Instrutor instrutor = new Instrutor("instrutor");
 
+		instrutor.setAcademia(academia);
 		academia.addInstrutor(instrutor);
 
-		Assert.assertTrue(academia.getInstrutores().contains(instrutor));
+		List<Instrutor> instrutores = academia.getInstrutores();
+		
+		Assert.assertTrue(instrutores.contains(instrutor));
 		Assert.assertTrue(instrutor.getAcademia().equals(academia));
 	}
 
@@ -30,7 +35,10 @@ public class AcademiaTest {
 		Aluno aluno2 = new Aluno("aluno2");
 
 		academia.addAluno(aluno1);
+		aluno1.setAcademia(academia);
+		
 		academia.addAluno(aluno2);
+		aluno2.setAcademia(academia);
 
 		Assert.assertTrue(academia.getAlunos().contains(aluno1));
 		Assert.assertTrue(academia.getAlunos().contains(aluno2));
