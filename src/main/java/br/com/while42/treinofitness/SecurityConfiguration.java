@@ -28,7 +28,7 @@ public class SecurityConfiguration
 
 		http
         .authorizeRequests()
-            .antMatchers("/", "/api", "/api/status").permitAll()
+            .antMatchers("/", "/api", "/api/status", "/resources/**").permitAll()
             .anyRequest().authenticated()
             .and()
         .formLogin()
