@@ -28,7 +28,7 @@ public class AcademiaController {
 	}
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
-	public ResponseEntity<Academia> get(@PathVariable String academiaId) {
+	public ResponseEntity<Academia> academia(@PathVariable String academiaId) {
 		return new ResponseEntity<Academia>(academiaRepository.findOne(Long.valueOf(academiaId)), HttpStatus.OK);
 	}
 	

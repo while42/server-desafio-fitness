@@ -24,7 +24,7 @@ public class InstrutorController {
 	}
 
 	@RequestMapping(value = "/{instrutorId}", method = RequestMethod.GET)
-	public ResponseEntity<Instrutor> get(@PathVariable String instrutorId) {
+	public ResponseEntity<Instrutor> instrutor(@PathVariable String instrutorId) {
 		return new ResponseEntity<Instrutor>(instrutorRepository.findOne(Long.valueOf(instrutorId)), HttpStatus.OK);
 	}
 

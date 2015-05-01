@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lista de Treinos do Aluno</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	${aluno.id} <br/>
+	${aluno.username} <br/>
+
+	<table border="1">
+		<tr th:each="treino : ${treinos}">
+			<td th:text="${{treino.id}}"></td>
+			<td th:text="${{treino.nome}}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

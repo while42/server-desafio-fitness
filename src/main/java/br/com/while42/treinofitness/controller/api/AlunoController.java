@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.controller.api;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @RestController
@@ -24,8 +27,15 @@ public class AlunoController {
 	} 
 	
 	@RequestMapping(value = "/{alunoId}", method = RequestMethod.GET)
-	public ResponseEntity<Aluno> get(@PathVariable String alunoId) {
+	public ResponseEntity<Aluno> aluno(@PathVariable String alunoId) {
 		return new ResponseEntity<Aluno>(alunoRepository.findOne(Long.valueOf(alunoId)), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/{alunoId}/treino", method = RequestMethod.GET)
+	public ResponseEntity<Iterable<Treino>> treinos(@PathVariable String alunoId) {
+		Aluno aluno = alunoRepository.findOne(Long.valueOf(alunoId));
+		List<Treino> treinos = aluno.getTreinos();
+		return new ResponseEntity<Iterable<Treino>>(treinos, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{alunoId}", method = RequestMethod.DELETE)

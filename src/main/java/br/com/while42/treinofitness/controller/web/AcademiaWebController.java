@@ -27,11 +27,10 @@ public class AcademiaWebController {
 		model.addAttribute("academias", academias);
 		
 		return "academia-lista";
-		
 	}
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
-	public String get(@PathVariable String academiaId, Model model) {
+	public String academia(@PathVariable String academiaId, Model model) {
 		Academia academia = academiaRepository.findOne(Long.valueOf(academiaId));
 		
 		model.addAttribute("academia", academia);
@@ -42,18 +41,18 @@ public class AcademiaWebController {
 	public String delete(@PathVariable String academiaId) {
 		academiaRepository.delete(Long.valueOf(academiaId));
 		
-		return "redirect: /todos";
+		return "redirect:/todos";
 	}
 
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
 	public String save(@RequestBody Academia academia) {
 		if (academia == null) {
 			// TODO: Falta msg de erro!
-			return "redirect: /aluno/todos";
+			return "redirect:/aluno/todos";
 		}
 		
 		academia = academiaRepository.save(academia);
-		return "redirect: /aluno/todos";
+		return "redirect:/aluno/todos";
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)

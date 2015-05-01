@@ -24,7 +24,7 @@ public class TreinoController {
 	}
 	
 	@RequestMapping(value = "/{treinoId}", method = RequestMethod.GET)
-	public ResponseEntity<Treino> get(@PathVariable String treinoId) {
+	public ResponseEntity<Treino> treino(@PathVariable String treinoId) {
 		return new ResponseEntity<Treino>(treinoRepository.findOne(Long.valueOf(treinoId)), HttpStatus.OK);
 	}
 	

@@ -23,7 +23,7 @@ public class ExercicioController {
 	}
 
 	@RequestMapping(value = "/{exercicioId}", method = RequestMethod.GET)
-	public ResponseEntity<Exercicio> get(@PathVariable String exercicioId) {
+	public ResponseEntity<Exercicio> exercicio(@PathVariable String exercicioId) {
 		return new ResponseEntity<Exercicio>(exercicioRepository.findOne(Long.valueOf(exercicioId)), HttpStatus.OK);
 	}
 
