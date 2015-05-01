@@ -1,26 +1,16 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Lista de Treinos do Aluno</title>
+<title>Lista de Treinos</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<div th:replace="header :: header">...</div>
-
-	<table border="1">
-		<tr>
-			<td th:text="${aluno.id}"/>
-			<td th:text="${aluno.username}"/>
-		</tr>
-	</table>
-	
-	<br/>
-	<br/>
-
-	<table border="1">
+	<div th:replace="header :: header"> </div>
+	<table border="1" class="table">
 		<tr th:each="treino : ${treinos}">
 			<td th:text="${{treino.id}}"></td>
 			<td th:text="${{treino.nome}}"></td>
+			<td th:text="${{treino.descricao}}"></td>
 		</tr>
 	</table>
 
