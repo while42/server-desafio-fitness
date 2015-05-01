@@ -15,7 +15,10 @@ public class InstrutorTest {
 		Instrutor instrutor = new Instrutor("instrutor");
 
 		academia.addInstrutor(instrutor);
-		Assert.assertTrue(instrutor.getAcademia().equals(academia));
+		instrutor.setAcademia(academia);
+		
+		Academia academiaDoInstrutor = instrutor.getAcademia();
+		Assert.assertTrue(academiaDoInstrutor.equals(academia));
 	}
 
 	@Test
@@ -26,7 +29,10 @@ public class InstrutorTest {
 		Aluno aluno2 = new Aluno("aluno2");
 
 		instrutor.addAluno(aluno1);
+		aluno1.setInstrutor(instrutor);
+		
 		instrutor.addAluno(aluno2);
+		aluno2.setInstrutor(instrutor);
 		
 		Assert.assertTrue(instrutor.getAlunos().contains(aluno1));
 		Assert.assertTrue(instrutor.getAlunos().contains(aluno2));
