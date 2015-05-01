@@ -40,10 +40,11 @@ public class TreinoFitnessApplication {
 		
 		// TODO: Somente para desenvolvimento
 		
-		Aluno aluno = new Aluno("Aluno");
-
+		Aluno aluno = new Aluno("aluno@aluno");
+		aluno.setSenha("aluno@aluno");
+		
 		Academia academia = new Academia("Academia");
-		Instrutor instrutor = new Instrutor("Instrutor");
+		Instrutor instrutor = new Instrutor("Instrutor@Instrutor");
 		Treino treino1 = new Treino("Treino A", "Aerobico");
 		Treino treino2 = new Treino("Treino B", "Forca");
 
@@ -70,10 +71,10 @@ public class TreinoFitnessApplication {
 		alunoRepository.save(aluno);
 
 		for (int i = 1; i < 5; i++) {
-			Aluno alunoX = new Aluno("Aluno Lero #" + i);
+			Aluno alunoX = new Aluno("Aluno@Aluno Lero #" + i);
 			
-			Academia academiaX = new Academia("Academia #" + i);
-			Instrutor instrutorX = new Instrutor("Instrutor #" + i);
+			Academia academiaX = new Academia("Academia@Academia #" + i);
+			Instrutor instrutorX = new Instrutor("Instrutor@Instrutor #" + i);
 			Treino treino1X = new Treino("Treino A", "Aerobico");
 			Treino treino2X = new Treino("Treino B", "Forca");
 
@@ -92,8 +93,8 @@ public class TreinoFitnessApplication {
 			alunoRepository.save(alunoX);
 		}
 
-		Instrutor instrutor2 = new Instrutor("Instrutor 2");
-		Aluno aluno2 = new Aluno("Aluno 2");
+		Instrutor instrutor2 = new Instrutor("Instrutor@Instrutor 2");
+		Aluno aluno2 = new Aluno("Aluno@Aluno 2");
 
 		instrutor2.addAluno(aluno2);
 		aluno2.setInstrutor(instrutor2);
