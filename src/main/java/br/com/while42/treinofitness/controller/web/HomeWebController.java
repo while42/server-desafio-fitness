@@ -12,7 +12,7 @@ public class HomeWebController {
  
     @RequestMapping(method = RequestMethod.GET)
     public String index(Principal principal) {
-        return "homeNotSignedIn";
+        return "home";
     }
  
 }
