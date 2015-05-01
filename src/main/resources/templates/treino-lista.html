@@ -5,7 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-	<div th:replace="header :: header"> </div>
+
+	<div th:include="header :: topo"> </div>
+	
 	<table border="1" class="table">
 		<tr th:each="treino : ${treinos}">
 			<td th:text="${{treino.id}}"></td>

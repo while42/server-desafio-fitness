@@ -6,6 +6,7 @@
 </head>
 <body>
 
+	<div th:include="header :: topo"> </div>
 	<table border="1" class="table">
 		<tr th:each="aluno : ${alunos}">
 			<td th:text="${{aluno.id}}"></td>
