@@ -9,12 +9,12 @@ import br.com.while42.treinofitness.model.AbstractUsuario;
 public interface UsuarioRepository extends CrudRepository<AbstractUsuario, Long> {
 
 	@Override
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	<S extends AbstractUsuario> S save(S s);
 
 	@Override
-//	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	void delete(Long aLong);
 
 	AbstractUsuario findByUsername(String username);
+	
+	AbstractUsuario findOneByUsernameAndSenha(String username, String senha);
 }
