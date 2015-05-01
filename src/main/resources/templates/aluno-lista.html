@@ -7,7 +7,7 @@
 <body>
 
 	<div th:include="header :: topo"> </div>
-	<table border="1" class="table">
+	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="aluno : ${alunos}">
 			<td th:text="${{aluno.id}}"></td>
 			<td th:text="${{aluno.username}}"></td>

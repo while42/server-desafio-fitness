@@ -8,7 +8,7 @@
 
 	<div th:include="header :: topo"> </div>
 	
-	<table border="1" class="table">
+	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="treino : ${treinos}">
 			<td th:text="${{treino.id}}"></td>
 			<td th:text="${{treino.nome}}"></td>

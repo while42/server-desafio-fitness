@@ -1,9 +1,12 @@
 <html xmlns:th="http://www.thymeleaf.org" th:fragment="topo">
 <head>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
+<link rel="stylesheet"
+	href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css"></link>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></link>
 </head>
 <body>
-	<div class="navbar navbar-inverse navbar-fixed-top" >
+	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -16,7 +19,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#" th:href="@{/}">Home</a></li>
-					<li><a href="#" th:href="@{/alunos/todos}">Alunos</a></li>
+					<li><a href="#" th:href="@{/aluno/todos}">Alunos</a></li>
 					<li><a href="#" th:href="@{/treino/todos}">Treinos</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -25,8 +28,8 @@
 			</div>
 		</div>
 	</div>
-	<br/>
-	<br/>
-	<br/>
+	<br />
+	<br />
+	<br />
 </body>
 </html>
