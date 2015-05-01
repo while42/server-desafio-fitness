@@ -6,8 +6,15 @@
 </head>
 <body>
 
-	${aluno.id} <br/>
-	${aluno.username} <br/>
+	<table border="1">
+		<tr>
+			<td th:text="${aluno.id}"/>
+			<td th:text="${aluno.username}"/>
+		</tr>
+	</table>
+	
+	<br/>
+	<br/>
 
 	<table border="1">
 		<tr th:each="treino : ${treinos}">
