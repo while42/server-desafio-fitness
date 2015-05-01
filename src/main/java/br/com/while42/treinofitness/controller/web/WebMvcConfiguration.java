@@ -13,5 +13,4 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
         registry.addViewController("/").setViewName("homeNotSignedIn");
         registry.addViewController("/login").setViewName("login");
     }
-
 }
