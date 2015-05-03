@@ -33,24 +33,11 @@ public class AlunoWebController {
 		Aluno aluno = alunoRepository.findOne(Long.valueOf(alunoId));
 		
 		if (aluno != null) {
-			model.addAttribute("id", aluno.getId());
-			model.addAttribute("username", aluno.getUsername());
+			model.addAttribute("aluno", aluno);
+			model.addAttribute("treinos", aluno.getTreinos());
 			return "aluno";
 		}
 
-		return "aluno-inexistente";
-	}
-
-	@RequestMapping(value = "/{alunoId}/treino", method = RequestMethod.GET)
-	public String treinos(@PathVariable String alunoId, Model model) {
-		Aluno aluno = alunoRepository.findOne(Long.valueOf(alunoId));
-		
-		if (aluno != null) {
-			model.addAttribute("aluno", aluno);
-			model.addAttribute("treinos", aluno.getTreinos());
-			return "aluno-treinos";
-		}
-		
 		return "aluno-inexistente";
 	}
 	
