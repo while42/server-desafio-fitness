@@ -1,14 +1,16 @@
 # server-treino-fitness
 
-Para que o projeto funcione no Eclipse executar alguns passos:
+# Etapas para configurar o ambiente:
 
-1) Fazer download do seguinte arquivo: https://projectlombok.org/downloads/lombok.jar
-
-2) Executar o seguinte comando no terminal: java -jar lombok.jar
-
-2.1) Sera necessario colocar no diretorio onde esta instalado o Eclipse
-
-
+* Executar o comando no terminal: mvn spring-boot:run
+* Dentro do Eclipse: Clique inverso no projeto -> Maven -> Update Project
+* Fazer download do seguinte arquivo: https://projectlombok.org/downloads/lombok.jar
+* Executar o seguinte comando no terminal: java -jar lombok.jar
+* Pod ser necessario colocar no diretorio onde esta instalado o Eclipse
+* Reiniciar o Eclipse (sem usar atalhos criados)
+* Dentro do Eclipse: Menu -> Project -> Clean -> Clean all project -> Ok
+* Dentro do Eclipse: Na aba "Problems" do Selecione os erros e apague
+* Reiniciar o Eclipse (sem usar atalhos criados)
 
 
 # Para iniciar a aplicacao:
