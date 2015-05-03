@@ -6,11 +6,12 @@
 </head>
 <body>
 
-	<div th:include="header :: topo"> </div>
+	<div th:include="header :: topo"></div>
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="aluno : ${alunos}">
 			<td th:text="${{aluno.id}}"></td>
-			<td th:text="${{aluno.username}}"></td>
+			<td><a th:text="${{aluno.username}}" href="@{/aluno/${aluno.id}}">
+			</a></td>
 		</tr>
 	</table>
 
