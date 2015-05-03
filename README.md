@@ -1,11 +1,17 @@
 # server-treino-fitness
 
 Para que o projeto funcione no Eclipse executar alguns passos:
-1.) Fazer download do seguinte arquivo: https://projectlombok.org/downloads/lombok.jar
-2.) Executar o seguinte comando no terminal: java -jar lombok.jar
-    - O programa ira perguntar o diretorio onde esta instalado o Eclipse
 
-Para iniciar a aplicacao:
+1) Fazer download do seguinte arquivo: https://projectlombok.org/downloads/lombok.jar
+
+2) Executar o seguinte comando no terminal: java -jar lombok.jar
+
+2.1) Sera necessario colocar no diretorio onde esta instalado o Eclipse
+
+
+
+
+# Para iniciar a aplicacao:
 $ mvn spring-boot:run
 
 
