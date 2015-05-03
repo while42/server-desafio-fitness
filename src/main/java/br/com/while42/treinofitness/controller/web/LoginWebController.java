@@ -2,6 +2,8 @@ package br.com.while42.treinofitness.controller.web;
 
 import javax.servlet.http.HttpSession;
 
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import br.com.while42.treinofitness.model.AbstractUsuario;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
+@Log4j
 @Controller
 public class LoginWebController {
 	
@@ -27,11 +30,11 @@ public class LoginWebController {
 		if (usuarioLogado != null) {
 			session.setAttribute("usuarioLogado", usuarioLogado);
 			
-			System.out.println(usuarioLogado.getId() + " - " + usuarioLogado.getUsername());
+			log.info(usuarioLogado.getId() + " - " + usuarioLogado.getUsername());
 			
 			return "redirect:api/status";
 		} else {
-			System.out.println("NADA!: " + usuario.getUsername() + " - " + usuario.getSenha());
+			log.info("NADA!: " + usuario.getUsername() + " - " + usuario.getSenha());
 		}
 		
 		return "login";

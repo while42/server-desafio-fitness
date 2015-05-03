@@ -2,6 +2,8 @@ package br.com.while42.treinofitness;
 
 import javax.annotation.PostConstruct;
 
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -21,6 +23,7 @@ import br.com.while42.treinofitness.repository.InstrutorRepository;
 
 //import org.springframework.security.core.context.SecurityContextHolder;
 
+@Log4j
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan
@@ -31,7 +34,9 @@ public class TreinoFitnessApplication {
 	private @Autowired AcademiaRepository academiaRepository;
 	
 	public static void main(String[] args) throws Exception {
+		log.info("Iniciando aplicacao");
 		SpringApplication.run(TreinoFitnessApplication.class, args);
+		log.info("Aplicacao iniciada");
 	}
 
 	@PostConstruct
