@@ -1,26 +1,35 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Aluno</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Aluno</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<div th:include="header :: topo"></div>
 
 	<table border="1" class="pure-table">
 		<tr>
-			<td th:text="${aluno.id}"/>
-			<td th:text="${aluno.username}"/>
+			<td th:text="${aluno.id}" />
+			<td th:text="${aluno.username}" />
 		</tr>
 	</table>
-	
-	<br/>
-	<br/>
+
+	<br />
+	<br />
 
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="treino : ${treinos}">
 			<td th:text="${{treino.id}}"></td>
 			<td th:text="${{treino.nome}}"></td>
+
+			<td>
+				<table th:each="exercicio : ${treino.exercicios}">
+					<tr>
+						<td th:text="${{exercicio.id}}"></td>
+						<td th:text="${{exercicio.nome}}"></td>
+					</tr>
+				</table>
+			</td>
 		</tr>
 	</table>
 </body>
