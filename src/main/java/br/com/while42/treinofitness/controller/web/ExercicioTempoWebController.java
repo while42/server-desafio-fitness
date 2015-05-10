@@ -14,7 +14,6 @@ import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.ExercicioRepository;
 import br.com.while42.treinofitness.repository.TreinoRepository;
 
-@Log4j
 @Controller
 @RequestMapping("/exercicioTempo")
 public class ExercicioTempoWebController {
@@ -25,12 +24,6 @@ public class ExercicioTempoWebController {
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute ExercicioTempo exercicioTempo) {
-
-		log.debug("ExercicioTempo "
-				+ " | nome = " + exercicioTempo.getNome()
-				+ " | exercicioID =  " + exercicioTempo.getId()
-				+ " | treinoID = " + exercicioTempo.getTreino().getId()
-				+ " | series = " + exercicioTempo.getSeries());
 
 		Treino treino = treinoRepository.findOne(exercicioTempo.getTreino()
 				.getId());
