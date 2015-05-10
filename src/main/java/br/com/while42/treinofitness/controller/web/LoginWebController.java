@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.controller.web;
 
+import javax.servlet.http.HttpSession;
+
 import lombok.extern.log4j.Log4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +30,12 @@ public class LoginWebController {
 	
 	// TODO: Por algum motivo nao consegui usar o mesmo name do GET
 	@RequestMapping(name = "/efetuaLogin", method = RequestMethod.POST)
-	public String efetuaLogin(@ModelAttribute Login login, Model model) {
+	public String efetuaLogin(@ModelAttribute Login login, Model model, HttpSession session) {
 		log.debug("Iniciando metodo: login [method: POST] [value: /efetuaLogin]");
 		
 		if (login == null) {
 			log.info("Parametro invalidos (usuario == null)");
+			
 			model.addAttribute("error", true);
 			model.addAttribute("login", new Login()); 
 			return "login";
@@ -51,7 +54,7 @@ public class LoginWebController {
 			return "login";
 		}
 		
-//		session.setAttribute("usuarioLogado", usuarioLogado);			
+		session.setAttribute("usuarioLogado", usuarioLogado);			
 		log.info("Login Efetuado - [ID: " + usuarioLogado.getId() + "] [username: " + usuarioLogado.getUsername() + "]");
 		
 		return "redirect:api/status";
