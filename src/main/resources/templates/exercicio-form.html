@@ -29,8 +29,9 @@
 		<input type="hidden" value="${aluno.id}" /> 
 		<input type="hidden" value="${treino.id}" /> 
 		<input type="submit" value="Salvar"/>
-		<input type="submit" value="Cancelar"/>
+		
 	</form>
+	<a th:text="Cancelar" th:href="@{|/aluno/${aluno.id}|}"></a>
 
 
 </body>

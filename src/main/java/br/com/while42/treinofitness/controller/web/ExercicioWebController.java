@@ -58,7 +58,7 @@ public class ExercicioWebController {
 		return "exercicio-form";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "/exercicioTempo", method = RequestMethod.POST)
 	public String save(@ModelAttribute ExercicioTempo exercicioTempo, 
 					   @RequestParam Long alunoId, @RequestParam Long treinoId, Model model) {
 		
