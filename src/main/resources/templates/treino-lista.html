@@ -10,9 +10,9 @@
 	
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="treino : ${treinos}">
-			<td th:text="${{treino.id}}"></td>
-			<td th:text="${{treino.nome}}"></td>
-			<td th:text="${{treino.descricao}}"></td>
+			<td th:text="${treino.id}"></td>
+			<td th:text="${treino.nome}"></td>
+			<td th:text="${treino.descricao}"></td>
 		</tr>
 	</table>
 

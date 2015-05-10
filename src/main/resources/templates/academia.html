@@ -19,14 +19,14 @@
 
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="aluno : ${alunos}">
-			<td th:text="${{aluno.id}}"></td>
-			<td th:text="${{aluno.nome}}"></td>
+			<td th:text="${aluno.id}"></td>
+			<td th:text="${aluno.nome}"></td>
 
 			<td>
 				<table th:each="exercicio : ${treino.exercicios}">
 					<tr>
-						<td th:text="${{exercicio.id}}"></td>
-						<td th:text="${{exercicio.nome}}"></td>
+						<td th:text="${exercicio.id}"></td>
+						<td th:text="${exercicio.nome}"></td>
 					</tr>
 				</table>
 			</td>
