@@ -13,7 +13,7 @@ public class Usuario {
 
 	private @Id @GeneratedValue Long id;
 	
-	private final String username;
+	private String username;
 	private String nome;
 	private @JsonIgnore String senha;
 	
@@ -34,6 +34,10 @@ public class Usuario {
 		return id;
 	}
 	
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -44,6 +48,10 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public void removeSenha() {
+		this.senha = null;
 	}
 
 	public void setNome(String nome) {
@@ -66,4 +74,5 @@ public class Usuario {
 	public String toString() {
 		return getUsername();
 	}
+
 }

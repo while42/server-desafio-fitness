@@ -11,7 +11,7 @@
 	<div th:replace="headerHome :: topo"></div>
 	
 	<div class="container">
-		<form class="form-signin" action="#" th:action="@{/login}" th:object="${usuario}" method="POST" >
+		<form class="form-signin" action="#" th:action="@{/login2}" th:object="${usuario}" method="post" >
 			<h2 class="form-signin-heading">Please sign in</h2>
 			
 			<div th:if="${param.error}" class="alert alert-error">    
@@ -21,17 +21,17 @@
                     Você fez logout com sucesso.
                 </div>
 			
-			<label for="inputUsername" class="sr-only">Email address</label> 
+			<label for="username" class="sr-only">Email address</label> 
 			<input
-				type="text" id="inputUsername" class="form-control"
+				type="text" id="username" class="form-control"
 				placeholder="Email" required="required"
 				autofocus="autofocus" th:field="*{username}"/> 
 				
-			<label for="inputSenha" class="sr-only">Password</label>	
-			<input type="text" id="inputSenha" class="form-control"
+			<label for="senha" class="sr-only">Password</label>	
+			<input type="password" id="senha" class="form-control"
 				placeholder="Senha" th:field="*{senha}" required="required" />
 				
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+			<input class="btn btn-lg btn-primary btn-block" type="submit" value="Entrar" />
 		</form>
 	</div>
 </body>
