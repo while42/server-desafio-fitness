@@ -6,14 +6,15 @@
 	<table border="1" class="pure-table">
 		<tr>
 			<td th:text="${aluno.username}" />
+			<td th:text="${treino.nome}" />
 		</tr>
 	</table>
 
 	<br />
 	<br /> 
-	<form th:action="@{/exercicio}">
+	<form th:action="@{/exercicio}" th:object="${exercicioTempo}" method="post">
 		Exercicio Nome:
-		<input type="text" name="nome" />
+		<input type="text" name="nome" th:field="*{nome}" />
 		<br /> 
 		
 		Series:
@@ -21,11 +22,12 @@
 		<br />
 		
 		Tempo:
-		<input type="text" name="tempo" />
+		<input type="text" name="tempo" th:field="*{tempo}"/>
 		<br />
 		<br />
 		<br />
-		
+		<input type="hidden" value="${aluno.id}" /> 
+		<input type="hidden" value="${treino.id}" /> 
 		<input type="submit" value="Salvar"/>
 		<input type="submit" value="Cancelar"/>
 	</form>

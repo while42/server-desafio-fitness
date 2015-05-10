@@ -24,6 +24,10 @@ public abstract class AbstractExercicio implements Exercicio {
 		this.nome = nome;
 		this.series = series;
 	}
+	
+	public void setNome(String nome){
+		this.nome = nome;
+	}
 
 	@Override
 	public Long getId() {
