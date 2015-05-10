@@ -1,7 +1,5 @@
 package br.com.while42.treinofitness.controller.web;
 
-import lombok.extern.log4j.Log4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +13,6 @@ import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.TreinoRepository;
 
-@Log4j
 @Controller
 @RequestMapping("/treino")
 public class TreinoWebController {
@@ -37,21 +34,19 @@ public class TreinoWebController {
 		Aluno aluno = alunoRepository.findOne(alunoId);
 
 		model.addAttribute("aluno", aluno);
-		model.addAttribute("treino", new Treino("", ""));
-		log.debug("foi para a pagina do form");
+		model.addAttribute("treino", new Treino(aluno));
 
 		return "treino-form";
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String save(@ModelAttribute Treino treino, @RequestParam Long alunoId) {
-
-		Aluno aluno = alunoRepository.findOne(alunoId);
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(@ModelAttribute Treino treino) {
+		
+		Aluno aluno = alunoRepository.findOne(treino.getAluno().getId());
 		aluno.addTreino(treino);
-		log.debug("Aluno ja tem exercicio");
-		alunoRepository.save(aluno);
-		log.debug("Aluno salvo no repositorio");
-
+		treino.setAluno(aluno);
+		treinoRepository.save(treino);
+		
 		return "redirect:/treino/todos";
 	}
 }

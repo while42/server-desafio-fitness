@@ -32,6 +32,10 @@ public class Treino {
 		this.nome = nome;
 		this.descricao = descricao;
 	}
+	
+	public Treino(Aluno aluno) {
+		this.aluno = aluno;
+	}
 
 	public Long getId(){
 		return id;
@@ -39,6 +43,14 @@ public class Treino {
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setNome(String nome){
+		this.nome = nome;
+	}
+	
+	public void setDescricao(String desc){
+		this.descricao = desc;
 	}
 
 	public String getDescricao() {
@@ -56,5 +68,13 @@ public class Treino {
 	@Override
 	public String toString() {
 		return nome;
+	}
+	
+	public void setAluno(Aluno aluno){
+		this.aluno = aluno;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
 	}
 }

@@ -5,25 +5,26 @@
 
 	<table border="1" class="pure-table">
 		<tr>
+			<td th:text="${aluno.id}" />
 			<td th:text="${aluno.username}" />
 		</tr>
 	</table>
 
 	<br />
 	<br /> 
-	<form th:action="@{/treino}" th:object="${treino}" method="post">
+	<form th:action="@{/treino/save}" th:object="${treino}" method="post">
 		Treino Nome:
-		<input type="text" name="nome"/>
+		<input type="text" th:field="*{nome}"/>
 		<br /> 
 		
 		Descricao:
-		<input type="text" name="desc"/>
+		<input type="text" th:field="*{descricao}"/>
 		
 		<br />
 		<br />
 		<br />
 		
-		<input type="hidden" value="${aluno.id}"/>
+		<input type="hidden" th:field="*{aluno.id}" />
 		<input type="submit" value="Salvar"/>
 	</form>
 	<a th:text="Cancelar" th:href="@{|/aluno/${aluno.id}|}"></a>
