@@ -27,6 +27,7 @@ public class Usuario {
 	
 	public Usuario(String username, String nome) {
 		this.username = username;
+		this.nome = nome;
 	}
 	
 	public Long getId() {
