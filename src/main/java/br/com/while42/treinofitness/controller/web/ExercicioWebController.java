@@ -3,7 +3,6 @@ package br.com.while42.treinofitness.controller.web;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,14 +53,7 @@ public class ExercicioWebController {
 		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo("", 0, 0));
 		model.addAttribute("exercicioRepeticoes" , new ExercicioRepeticoes("", 0, 0));
 		model.addAttribute("exercicioRepeticoesComPeso" , new ExercicioRepeticoesComPeso("", 0, 0));
-		model.addAttribute("exercicioTempo" , new ExercicioTempo("", 0, 0));
-		return "exercicio-form";
-	}
-
-	@RequestMapping(value = "/exercicioTempo", method = RequestMethod.POST)
-	public String save(@ModelAttribute ExercicioTempo exercicioTempo, 
-					   @RequestParam Long alunoId, @RequestParam Long treinoId, Model model) {
-		
+		model.addAttribute("exercicioTempo" , new ExercicioTempo(treinoQueVaiReceberUmExercicio));
 		return "exercicio-form";
 	}
 }

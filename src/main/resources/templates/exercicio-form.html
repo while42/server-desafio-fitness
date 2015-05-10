@@ -12,22 +12,19 @@
 
 	<br />
 	<br /> 
-	<form th:action="@{/exercicio}" th:object="${exercicioTempo}" method="post">
+	<form th:action="@{/exercicioTempo/save}" th:object="${exercicioTempo}" method="post">
 		Exercicio Nome:
-		<input type="text" name="nome" th:field="*{nome}" />
+		<input type="text" th:field="*{nome}" />
 		<br /> 
 		
-		Series:
-		<input type="text" name="desc" value="1" />
+		Tempo:
+		<input type="text" th:field="*{tempo}"/>
+		
+		<br />
+		<br />
 		<br />
 		
-		Tempo:
-		<input type="text" name="tempo" th:field="*{tempo}"/>
-		<br />
-		<br />
-		<br />
-		<input type="hidden" value="${aluno.id}" /> 
-		<input type="hidden" value="${treino.id}" /> 
+		<input type="hidden" th:field="*{treino.id}" /> 
 		<input type="submit" value="Salvar"/>
 		
 	</form>

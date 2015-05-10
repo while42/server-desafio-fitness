@@ -20,6 +20,11 @@ public class ExercicioTempo extends AbstractExercicio {
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
 
+	public ExercicioTempo(Treino treinoQueVaiReceberUmExercicio) {
+		this("", 0);
+		setTreino(treinoQueVaiReceberUmExercicio);
+	}
+
 	public double getTempo() {
 		return tempoEmMinutos;
 	}
@@ -29,6 +34,6 @@ public class ExercicioTempo extends AbstractExercicio {
 	}
 	
 	public String getString(){
-		return getNome() + " - Em " + getTempo() + "min";
+		return getNome() + " - Por " + getTempo() + "min";
 	}
 }

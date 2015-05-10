@@ -16,6 +16,14 @@ public abstract class AbstractExercicio implements Exercicio {
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
 	
+	public Treino getTreino() {
+		return treino;
+	}
+
+	public void setTreino(Treino treino) {
+		this.treino = treino;
+	}
+
 	@Deprecated
 	public AbstractExercicio() {
 	}
@@ -37,6 +45,10 @@ public abstract class AbstractExercicio implements Exercicio {
 	@Override
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 	@Override
