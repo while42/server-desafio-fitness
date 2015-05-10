@@ -33,6 +33,7 @@ public class InstrutorWebController {
 		if (instrutor != null) {
 			model.addAttribute("instrutor", instrutor);
 			model.addAttribute("alunos", instrutor.getAlunos());
+			model.addAttribute("academia", instrutor.getAcademia());
 			return "instrutor";
 		}
 		

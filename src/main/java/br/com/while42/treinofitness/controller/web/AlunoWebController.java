@@ -34,6 +34,8 @@ public class AlunoWebController {
 		if (aluno != null) {
 			model.addAttribute("aluno", aluno);
 			model.addAttribute("treinos", aluno.getTreinos());
+			model.addAttribute("instrutor", aluno.getInstrutor());
+			model.addAttribute("academia", aluno.getAcademia());
 			return "aluno";
 		}
 
