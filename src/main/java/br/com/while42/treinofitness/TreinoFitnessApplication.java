@@ -131,6 +131,8 @@ public class TreinoFitnessApplication {
 		
 		instrutor2.addAluno(aluno2);
 		
+		instrutor2.setAcademia(academiaCS);
+		
 		academiaCS.addInstrutor(instrutor2);
 		academiaCS.addAluno(aluno2);
 		

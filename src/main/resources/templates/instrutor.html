@@ -9,17 +9,32 @@
 
 	<table border="1" class="pure-table">
 		<tr>
-			<td th:text="${instrutor.username}" />
 			<td th:text="${instrutor.nome}" />
+			<td th:text="${instrutor.username}" />
+			
 		</tr>
 	</table>
+	
+	<br />
+	<br />
+	
+	<table border="1" class="pure-table">
+		<tr>
+			<td>
+				<b>Academia:</b> <a th:text="${academia.nome}" th:href="@{|/academia/${academia.id}|}"></a> 
+			</td>
+		</tr>
+	</table>
+	
 
 	<br />
 	<br />
 	
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="aluno : ${alunos}">
-			<td th:text="${aluno.nome}"></td>
+			<td>
+				<a th:text="${aluno.nome}" th:href="@{|/aluno/${aluno.id}|}"></a> 
+			</td>
 		</tr>
 	</table>
 </body>

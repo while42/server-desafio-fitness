@@ -12,6 +12,28 @@
 			<td th:text="${aluno.nome}" />
 		</tr>
 	</table>
+	
+	<br />
+	<br />
+	
+	<table border="1" class="pure-table">
+		<tr>
+			<td>
+				<b>Instrutor:</b> <a th:text="${instrutor.nome}" th:href="@{|/instrutor/${instrutor.id}|}"></a> 
+			</td>
+		</tr>
+	</table>
+	
+	<br />
+	<br />
+	
+	<table border="1" class="pure-table">
+		<tr>
+			<td>
+				<b>Academia:</b> <a th:text="${academia.nome}" th:href="@{|/academia/${academia.id}|}"></a> 
+			</td>
+		</tr>
+	</table>
 
 	<br />
 	<br />

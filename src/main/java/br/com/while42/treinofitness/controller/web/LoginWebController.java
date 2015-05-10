@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import br.com.while42.treinofitness.model.Login;
 import br.com.while42.treinofitness.model.Usuario;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
@@ -21,32 +22,33 @@ public class LoginWebController {
 	@RequestMapping(name = "/login", method = RequestMethod.GET)
 	public String formLogin(Model model) {
 		log.debug("Iniciando metodo: formLogin [method: GET] [value: /login] ");
-		model.addAttribute("usuario", new Usuario("", "")); // TODO: Rever
+		model.addAttribute("login", new Login()); 
 		return "login";
 	}
 	
-	@RequestMapping(name = "/login2", method = RequestMethod.POST)
-	public String login(@ModelAttribute Usuario usuario, Model model) {
-		log.debug("Iniciando metodo: login [method: POST] [value: /login]");
+	// TODO: Por algum motivo nao consegui usar o mesmo name do GET
+	@RequestMapping(name = "/efetuaLogin", method = RequestMethod.POST)
+	public String efetuaLogin(@ModelAttribute Login login, Model model) {
+		log.debug("Iniciando metodo: login [method: POST] [value: /efetuaLogin]");
 		
-		if (usuario == null) {
+		if (login == null) {
 			log.info("Parametro invalidos (usuario == null)");
-			model.addAttribute("param.error", true);
-			model.addAttribute("usuario", new Usuario("", "")); // TODO: Rever
-			return "redirect:login";
+			model.addAttribute("error", true);
+			model.addAttribute("login", new Login()); 
+			return "login";
 		}
 		
-		Usuario usuarioLogado = usuarioRepository.findOneByUsernameAndSenha(usuario.getUsername(), usuario.getSenha());
+		Usuario usuarioLogado = usuarioRepository.findOneByUsernameAndSenha(login.getUsername(), login.getSenha());
 		
 		if (usuarioLogado == null) {
-			log.info("Login Invalido - [username: " + usuario.getUsername() + "]");
-			log.debug("Login Invalido - [username: " + usuario.getUsername() + "] [senha: " + usuario.getSenha() + "]");
+			log.info("Login Invalido - [username: " + login.getUsername() + "]");
+			log.debug("Login Invalido - [username: " + login.getUsername() + "] [senha: " + login.getSenha() + "]");
 			
-			usuario.removeSenha();
+			login.removeSenha();
 			
-			model.addAttribute("param.error", true);
-			model.addAttribute("usuario", usuario); 
-			return "redirect:login";
+			model.addAttribute("error", true);
+			model.addAttribute("login", new Login());  
+			return "login";
 		}
 		
 //		session.setAttribute("usuarioLogado", usuarioLogado);			
