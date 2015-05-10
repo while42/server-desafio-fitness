@@ -4,34 +4,18 @@
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Login</title>
-<link href="css/signin.css" rel="stylesheet"/>
+<link href="css/signin.css" rel="stylesheet" />
 </head>
 <body>
 
 	<div th:replace="headerHome :: topo"></div>
-	
+
 	<div class="container">
-		<form class="form-signin" th:action="@{/login}" method="post">
-			<h2 class="form-signin-heading">Please sign in</h2>
-			
-			<div th:if="${param.error}" class="alert alert-error">    
-                    Username ou senha invalidos.
-                </div>
-                <div th:if="${param.logout}" class="alert alert-success"> 
-                    Você fez logout com sucesso.
-                </div>
-			
-			<label for="inputUsername" class="sr-only">Email address</label> 
-			<input
-				type="email" id="inputUsername" class="form-control"
-				placeholder="Email" required="required"
-				autofocus="autofocus" name="username"/> 
-				
-			<label for="inputSenha" class="sr-only">Password</label>	
-			<input type="password" id="inputSenha" class="form-control"
-				placeholder="Senha" name="senha" required="required" />
-				
-			<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+		<form action="#" th:action="@{/login}" th:object="${usuario}" method="POST">
+			<input type="text" th:field="*{username}" /> 
+			<input type="text" th:field="*{senha}" />
+
+			<button type="submit">Entrar</button>
 		</form>
 	</div>
 </body>

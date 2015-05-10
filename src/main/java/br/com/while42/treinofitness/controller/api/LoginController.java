@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.while42.treinofitness.model.AbstractUsuario;
+import br.com.while42.treinofitness.model.Usuario;
 import br.com.while42.treinofitness.model.Login;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
@@ -24,9 +24,9 @@ public class LoginController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		
-		AbstractUsuario usuario = usuarioRepository.findByUsername(login.getUsername());
+		Usuario usuario = usuarioRepository.findByUsername(login.getUsername());
 		if (usuario.getSenha().equals(login.getSenha())) {
-			return new ResponseEntity<AbstractUsuario>(usuario, HttpStatus.OK);
+			return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
 		}
 		
 		return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);

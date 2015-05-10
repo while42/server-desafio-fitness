@@ -43,7 +43,7 @@ public class Academia implements Cloneable {
 		return instrutores;
 	}
 
-	final void addUsuario(AbstractUsuario usuario) {
+	final void addUsuario(Usuario usuario) {
 		if (usuario instanceof Aluno) {
 			addAluno((Aluno) usuario);
 		} else if (usuario instanceof Instrutor) {

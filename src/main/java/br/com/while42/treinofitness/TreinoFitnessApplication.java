@@ -34,7 +34,6 @@ public class TreinoFitnessApplication {
 	private @Autowired AcademiaRepository academiaRepository;
 	
 	public static void main(String[] args) throws Exception {
-		log.info("Iniciando aplicacao");
 		SpringApplication.run(TreinoFitnessApplication.class, args);
 		log.info("Aplicacao iniciada");
 	}

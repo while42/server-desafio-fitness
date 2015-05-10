@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.while42.treinofitness.model.AbstractUsuario;
+import br.com.while42.treinofitness.model.Usuario;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
 @RestController
@@ -16,12 +16,12 @@ public class UsuarioController {
 	private @Autowired UsuarioRepository usuarioRepository;
 	
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public Iterable<AbstractUsuario> lista() {
+	public Iterable<Usuario> lista() {
 		return usuarioRepository.findAll();
 	}
 	
 	@RequestMapping(value = "/{usuarioId}", method = RequestMethod.GET)
-	public AbstractUsuario usuario(@PathVariable String usuarioId) {
+	public Usuario usuario(@PathVariable String usuarioId) {
 		return usuarioRepository.findOne(Long.valueOf(usuarioId));
 	}
 }

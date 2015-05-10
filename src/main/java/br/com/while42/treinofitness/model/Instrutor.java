@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Instrutor extends AbstractUsuario {
+public class Instrutor extends Usuario {
 
 	@OneToMany(cascade=CascadeType.PERSIST)
 	public @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();

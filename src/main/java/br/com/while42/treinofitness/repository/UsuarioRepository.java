@@ -4,17 +4,17 @@ import org.springframework.data.repository.CrudRepository;
 //import org.springframework.security.access.prepost.PreAuthorize;
 
 
-import br.com.while42.treinofitness.model.AbstractUsuario;
+import br.com.while42.treinofitness.model.Usuario;
 
-public interface UsuarioRepository extends CrudRepository<AbstractUsuario, Long> {
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
 	@Override
-	<S extends AbstractUsuario> S save(S s);
+	<S extends Usuario> S save(S s);
 
 	@Override
 	void delete(Long aLong);
 
-	AbstractUsuario findByUsername(String username);
+	Usuario findByUsername(String username);
 	
-	AbstractUsuario findOneByUsernameAndSenha(String username, String senha);
+	Usuario findOneByUsernameAndSenha(String username, String senha);
 }
