@@ -8,8 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.extern.log4j.Log4j;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Log4j
 @Entity
 public class Academia implements Cloneable {
 
@@ -48,6 +51,9 @@ public class Academia implements Cloneable {
 			addAluno((Aluno) usuario);
 		} else if (usuario instanceof Instrutor) {
 			addInstrutor((Instrutor) usuario);
+		} else {
+			String username = (usuario == null) ? "NULL" : usuario.getUsername();
+			log.error("Erro ao adicionar um usuario na Academia [usename: " + username + "]");
 		}
 	}
 	
