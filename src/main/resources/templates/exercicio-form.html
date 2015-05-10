@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:include="header :: topo"></div>
+
+	<table border="1" class="pure-table">
+		<tr>
+			<td th:text="${aluno.username}" />
+		</tr>
+	</table>
+
+	<br />
+	<br /> 
+	Treino Nome:
+	<input type="text" name="nome"/>
+	<br /> Descricao:
+	<input type="text" name="desc"/>
+	<br />
+
+</body>
+</html>

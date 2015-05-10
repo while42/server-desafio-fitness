@@ -26,8 +26,17 @@
 						<td th:text="${exercicio.string}"></td>
 					</tr>
 				</table>
+				<table>
+					<tr>
+						<td><a th:href="@{|/exercicio/form?alunoId=${aluno.id}|}">Adicionar Exercicio</a></td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 	</table>
+	<br />
+	<a th:href="@{|/treino/form?alunoId=${aluno.id}|}">>Adicionar Treino</a>
 </body>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 </html>

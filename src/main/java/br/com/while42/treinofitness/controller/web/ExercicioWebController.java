@@ -7,33 +7,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.while42.treinofitness.model.AbstractExercicio;
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
-import br.com.while42.treinofitness.repository.TreinoRepository;
+import br.com.while42.treinofitness.repository.ExercicioRepository;
 
 @Controller
-@RequestMapping("/treino")
-public class TreinoWebController {
+@RequestMapping("/exercicio")
+public class ExercicioWebController {
 
-	private @Autowired TreinoRepository treinoRepository;
-	private @Autowired AlunoRepository AlunoRepository;
-	
+	private @Autowired ExercicioRepository exercicioRepository;
+	private @Autowired AlunoRepository alunoRepository;
+
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public String all(Model model){
-		Iterable<Treino> academias = treinoRepository.findAll();
-		
-		model.addAttribute("treinos", academias);
-		
-		return "treino-lista";
-	} 
-	
+	public String all(Model model) {
+		Iterable<AbstractExercicio> exercicios = exercicioRepository.findAll();
+
+		model.addAttribute("exercicios", exercicios);
+
+		return "exercicio-lista";
+	}
+
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
-	public String form(@RequestParam long alunoId, Model model){
-		Aluno aluno = AlunoRepository.findOne(alunoId);
-		
+	public String form(@RequestParam Long alunoId, Model model) {
+		Aluno aluno = alunoRepository.findOne(alunoId);
+
 		model.addAttribute("aluno", aluno);
-		
-		return "treino-form";
-	} 
+		return "exercicio-form";
+	}
 }
