@@ -22,8 +22,8 @@ public class TreinoTest {
 	public void testConsistenciaTreinoExercicios() {
 		Treino treino = new Treino("treino" , "descricao1");
 		
-		Exercicio exercicio1 = new ExercicioRepeticoesComPeso("exercicio1", 3, 8);
-		Exercicio exercicio2 = new ExercicioRepeticoesComPeso("exercicio2", 4, 10);
+		AbstractExercicio exercicio1 = new ExercicioRepeticoesComPeso("exercicio1", 3, 8);
+		AbstractExercicio exercicio2 = new ExercicioRepeticoesComPeso("exercicio2", 4, 10);
 		
 		treino.addExercicio(exercicio1);
 		treino.addExercicio(exercicio2);

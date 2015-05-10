@@ -3,7 +3,7 @@ package br.com.while42.treinofitness.model;
 import javax.persistence.Entity;
 
 @Entity
-public class ExercicioRepeticoes extends Exercicio {
+public class ExercicioRepeticoes extends AbstractExercicio {
 	
 	private long repeticoes;
 

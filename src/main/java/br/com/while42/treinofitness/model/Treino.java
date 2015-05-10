@@ -19,7 +19,7 @@ public class Treino {
 	private String descricao;
 	
 	@OneToMany(cascade=CascadeType.PERSIST)
-	private final List<Exercicio> exercicios = new ArrayList<Exercicio>();
+	private final List<AbstractExercicio> exercicios = new ArrayList<AbstractExercicio>();
 	
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Aluno aluno;
@@ -45,11 +45,11 @@ public class Treino {
 		return descricao;
 	}
 	
-	public void addExercicio(Exercicio exercicio) {
+	public void addExercicio(AbstractExercicio exercicio) {
 		exercicios.add(exercicio);
 	}
 
-	public List<Exercicio> getExercicios() {
+	public List<AbstractExercicio> getExercicios() {
 		return exercicios;
 	}
 	
