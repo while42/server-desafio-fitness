@@ -16,7 +16,7 @@ public class AcademiaTest {
 	@Test
 	public void testConsistenciaAcademiaInstrutor() {
 		Academia academia = new Academia("Academia de Teste");
-		Instrutor instrutor = new Instrutor("instrutor");
+		Instrutor instrutor = new Instrutor("instrutor", "instrutor-nome");
 
 		instrutor.setAcademia(academia);
 		academia.addInstrutor(instrutor);
@@ -31,8 +31,8 @@ public class AcademiaTest {
 	public void testConsistenciaAcademiaAlunos() {
 		Academia academia = new Academia("Academia de Teste");
 
-		Aluno aluno1 = new Aluno("aluno1");
-		Aluno aluno2 = new Aluno("aluno2");
+		Aluno aluno1 = new Aluno("aluno1", "aluno-nome");
+		Aluno aluno2 = new Aluno("aluno2", "aluno-nome");
 
 		academia.addAluno(aluno1);
 		aluno1.setAcademia(academia);
