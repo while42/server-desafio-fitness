@@ -21,6 +21,11 @@ public class ExercicioRepeticoesComPeso extends AbstractExercicio {
 		this.repeticoes = repeticoes;
 		this.peso = peso;
 	}
+	
+	public ExercicioRepeticoesComPeso(Treino treino){
+		this("", 0, 0);
+		setTreino(treino);
+	}
 
 	public long getRepeticoes() {
 		return repeticoes;

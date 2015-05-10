@@ -19,6 +19,11 @@ public class ExercicioRepeticoes extends AbstractExercicio {
 		super(nome, series);
 		this.repeticoes = repeticoes;
 	}
+	
+	public ExercicioRepeticoes(Treino treino){
+		this("", 0);
+		setTreino(treino);
+	}
 
 	public long getRepeticoes() {
 		return repeticoes;

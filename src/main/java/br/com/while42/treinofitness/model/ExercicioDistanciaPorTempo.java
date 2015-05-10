@@ -21,6 +21,11 @@ public class ExercicioDistanciaPorTempo extends AbstractExercicio{
 		this.distanciaEmMetros = distanciaEmMetros;
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
+	
+	public ExercicioDistanciaPorTempo(Treino treino){
+		this("", 0, 0);
+		setTreino(treino);
+	}
 
 	public double getDistancia() {
 		return distanciaEmMetros;

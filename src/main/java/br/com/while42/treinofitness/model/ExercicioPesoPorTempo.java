@@ -21,6 +21,11 @@ public class ExercicioPesoPorTempo extends AbstractExercicio {
 		this.peso = peso;
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
+	
+	public ExercicioPesoPorTempo(Treino treino){
+		this("", 0, 0);
+		setTreino(treino);
+	}
 
 	public double getPeso() {
 		return peso;
