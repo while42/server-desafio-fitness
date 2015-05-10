@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Instrutor;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 
 @Controller
@@ -62,5 +63,14 @@ public class AcademiaWebController {
 		
 		model.addAttribute("alunos", alunos);
 		return "aluno-lista";
+	}
+	
+	@RequestMapping(value = "/{academiaId}/instrutor/todos", method = RequestMethod.GET)
+	public String instrutores(@PathVariable String academiaId, Model model) {
+		
+		List<Instrutor> instrutores = academiaRepository.findOne(Long.valueOf(academiaId)).getInstrutores();
+		
+		model.addAttribute("instrutores", instrutores);
+		return "instrutor-lista";
 	}
 }

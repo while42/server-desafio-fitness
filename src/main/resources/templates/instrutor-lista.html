@@ -1,18 +1,17 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Lista de Alunos</title>
+<title>Lista de Instrutores</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 
 	<div th:include="header :: topo"></div>
 	<table border="1" class="pure-table pure-table-horizontal">
-		<tr th:each="aluno : ${alunos}">
-			<td th:text="${aluno.id}"></td>
-			<td><a th:text="${aluno.nome}" th:href="@{|/aluno/${aluno.id}|}">
+		<tr th:each="instrutor : ${instrutores}">
+			<td th:text="${instrutor.id}"></td>
+			<td><a th:text="${instrutor.nome}" th:href="@{|/instrutor/${instrutor.id}|}">
 			</a></td>
-			<td th:text="${aluno.username}"></td>
 		</tr>
 	</table>
 
