@@ -19,8 +19,8 @@ public class Instrutor extends Usuario {
 	public Instrutor() {
 	}
 
-	public Instrutor(String login) {
-		super(login);
+	public Instrutor(String login, String nome) {
+		super(login, nome);
 	}
 
 	public List<Aluno> getAlunos() {

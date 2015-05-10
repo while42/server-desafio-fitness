@@ -14,6 +14,7 @@ public class Usuario {
 	private @Id @GeneratedValue Long id;
 	
 	private final String username;
+	private String nome;
 	private @JsonIgnore String senha;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -24,7 +25,7 @@ public class Usuario {
 		username = null;
 	}
 	
-	public Usuario(String username) {
+	public Usuario(String username, String nome) {
 		this.username = username;
 	}
 	
@@ -44,6 +45,14 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
 	public Academia getAcademia() {
 		return academia;
 	}
