@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lista de Academias</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<div th:include="header :: topo"></div>
+	<table border="1" class="pure-table pure-table-horizontal">
+		<tr th:each="academia : ${academias}">
+			<td th:text="${{academia.id}}"></td>
+			<td><a th:text="${{academia.nome}}" th:href="@{|/academia/${academia.id}|}">
+			</a></td>
+		</tr>
+	</table>
+
+</body>
+</html>
