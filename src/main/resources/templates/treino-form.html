@@ -11,11 +11,18 @@
 
 	<br />
 	<br /> 
-	Treino Nome:
-	<input type="text" name="nome"/>
-	<br /> Descricao:
-	<input type="text" name="desc"/>
-	<br />
-
+	<form>
+		Treino Nome:
+		<input type="text" name="nome"/>
+		<br /> 
+		
+		Descricao:
+		<input type="text" name="desc"/>
+		<br />
+		
+		<input type="submit" value="Salvar"/>
+		<input type="submit" value="Criar Exercicio"/>
+		<input type="submit" value="Cancelar" onclick="location.href='/aluno/${aluno.id}'"/>
+	</form>
 </body>
 </html>

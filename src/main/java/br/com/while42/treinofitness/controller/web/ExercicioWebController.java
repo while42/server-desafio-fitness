@@ -35,4 +35,12 @@ public class ExercicioWebController {
 		model.addAttribute("aluno", aluno);
 		return "exercicio-form";
 	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public String save(@RequestParam Long alunoId, Model model) {
+		Aluno aluno = alunoRepository.findOne(alunoId);
+
+		model.addAttribute("aluno", aluno);
+		return "exercicio-form";
+	}
 }
