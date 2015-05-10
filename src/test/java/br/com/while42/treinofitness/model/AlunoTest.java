@@ -13,7 +13,7 @@ public class AlunoTest {
 		Treino treino1 = new Treino("treino1" , "descricao1");
 		Treino treino2 = new Treino("treino2" , "descricao2");
 		
-		Aluno aluno = new Aluno("aluno");
+		Aluno aluno = new Aluno("aluno", "aluno-nome");
 		aluno.addTreino(treino1);
 		aluno.addTreino(treino2);
 		
@@ -23,7 +23,7 @@ public class AlunoTest {
 	
 	@Test
 	public void testToString() {
-		Aluno aluno1 = new Aluno("aluno1");
+		Aluno aluno1 = new Aluno("aluno1", "aluno-nome");
 		Assert.assertEquals("aluno1", aluno1.toString());
 	}
 

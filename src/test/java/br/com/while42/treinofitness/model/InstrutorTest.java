@@ -12,7 +12,7 @@ public class InstrutorTest {
 	@Test
 	public void testGetAcademia() {
 		Academia academia = new Academia("Academia de Teste");
-		Instrutor instrutor = new Instrutor("instrutor");
+		Instrutor instrutor = new Instrutor("instrutor", "instrutor-nome");
 
 		academia.addInstrutor(instrutor);
 		instrutor.setAcademia(academia);
@@ -23,10 +23,10 @@ public class InstrutorTest {
 
 	@Test
 	public void testConsistenciaInstrutorAlunos() {
-		Instrutor instrutor = new Instrutor("instrutor");
+		Instrutor instrutor = new Instrutor("instrutor", "instrutor-nome");
 		
-		Aluno aluno1 = new Aluno("aluno1");
-		Aluno aluno2 = new Aluno("aluno2");
+		Aluno aluno1 = new Aluno("aluno1", "aluno-nome");
+		Aluno aluno2 = new Aluno("aluno2", "aluno-nome");
 
 		instrutor.addAluno(aluno1);
 		aluno1.setInstrutor(instrutor);
@@ -43,7 +43,7 @@ public class InstrutorTest {
 
 	@Test
 	public void testToString() {
-		Instrutor instrutor = new Instrutor("instrutor");
+		Instrutor instrutor = new Instrutor("instrutor", "instrutor-nome");
 		Assert.assertEquals("instrutor", instrutor.toString());
 	}
 }

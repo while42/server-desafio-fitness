@@ -39,7 +39,7 @@ public class UsuarioRepositoryTest {
 	public void save() {
 		Academia vip = academiaRepository.save(new Academia("Academia 1"));
 
-		Aluno aluno = new Aluno("Aluno");
+		Aluno aluno = new Aluno("Aluno", "Aluno-nome");
 		aluno.setAcademia(vip);
 
 		aluno = usuarioRepository.save(aluno);
