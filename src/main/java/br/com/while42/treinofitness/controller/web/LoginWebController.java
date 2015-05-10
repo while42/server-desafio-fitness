@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.while42.treinofitness.model.Login;
 import br.com.while42.treinofitness.model.Usuario;
@@ -30,15 +31,13 @@ public class LoginWebController {
 	
 	// TODO: Por algum motivo nao consegui usar o mesmo name do GET
 	@RequestMapping(name = "/efetuaLogin", method = RequestMethod.POST)
-	public String efetuaLogin(@ModelAttribute Login login, Model model, HttpSession session) {
+	public ModelAndView efetuaLogin(@ModelAttribute Login login, Model model, HttpSession session) {
 		log.debug("Iniciando metodo: login [method: POST] [value: /efetuaLogin]");
 		
 		if (login == null) {
 			log.info("Parametro invalidos (usuario == null)");
 			
-			model.addAttribute("error", true);
-			model.addAttribute("login", new Login()); 
-			return "login";
+			return new ModelAndView("redirect:/login?error=true");
 		}
 		
 		Usuario usuarioLogado = usuarioRepository.findOneByUsernameAndSenha(login.getUsername(), login.getSenha());
@@ -47,17 +46,14 @@ public class LoginWebController {
 			log.info("Login Invalido - [username: " + login.getUsername() + "]");
 			log.debug("Login Invalido - [username: " + login.getUsername() + "] [senha: " + login.getSenha() + "]");
 			
-			login.removeSenha();
-			
-			model.addAttribute("error", true);
-			model.addAttribute("login", new Login());  
-			return "login";
+			// TODO: A desvantagem dessa abordagem eh que nao volta para a tela de login com username
+			return new ModelAndView("redirect:/login?error=true");
 		}
 		
 		session.setAttribute("usuarioLogado", usuarioLogado);			
 		log.info("Login Efetuado - [ID: " + usuarioLogado.getId() + "] [username: " + usuarioLogado.getUsername() + "]");
 		
-		return "redirect:api/status";
+		return new ModelAndView("redirect:api/status");
 	}
 
 }
