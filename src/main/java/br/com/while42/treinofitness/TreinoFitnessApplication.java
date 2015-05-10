@@ -108,16 +108,36 @@ public class TreinoFitnessApplication {
 
 			alunoRepository.save(alunoX);
 		}
+		
+		
 
-		Instrutor instrutor2 = new Instrutor("Instrutor@Instrutor 2",
-				"Fred Personal");
-		Aluno aluno2 = new Aluno("Aluno@Aluno 2", "Maria Franga");
+		Instrutor instrutor2 = new Instrutor("instrutor@username",
+				"Fred Personal");		
+		Aluno aluno2 = new Aluno("aluno@username", "Maria Franga");
+		Academia academiaCS = new Academia("Corpo Sarado");
+		Treino treinoAr = new Treino("Treino A", "Aerobico");
+		Treino treinoFr = new Treino("Treino B", "Forca");
 
-		instrutor2.addAluno(aluno2);
+		treinoAr.addExercicio(new ExercicioTempo("Bike", 20));
+		treinoAr.addExercicio(new ExercicioTempo("Corrida", 20));
+
+		treinoFr.addExercicio(new ExercicioRepeticoesComPeso(
+				"Leg Press 45 graus", 4, 10, 60));
+		
 		aluno2.setInstrutor(instrutor2);
-
+		aluno2.setAcademia(academiaCS);
+		aluno2.addTreino(treinoAr);
+		aluno2.addTreino(treinoFr);
+		
+		instrutor2.addAluno(aluno2);
+		
+		academiaCS.addInstrutor(instrutor2);
+		academiaCS.addAluno(aluno2);
+		
+		alunoRepository.save(aluno2);
 		instrutorRepository.save(instrutor2);
-
+		academiaRepository.save(academiaCS);
+		
 		// SecurityContextHolder.clearContext();
 	}
 }

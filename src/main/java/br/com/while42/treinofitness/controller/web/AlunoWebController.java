@@ -16,13 +16,12 @@ import br.com.while42.treinofitness.repository.AlunoRepository;
 public class AlunoWebController {
 
 	private @Autowired AlunoRepository alunoRepository;
-	private @Autowired AlunoRepository academiaRepository;
 	
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
 	public String all(Model model){
-		Iterable<Aluno> academias = academiaRepository.findAll();
+		Iterable<Aluno> alunos = alunoRepository.findAll();
 		
-		model.addAttribute("alunos", academias);
+		model.addAttribute("alunos", alunos);
 		
 		return "aluno-lista";
 	} 

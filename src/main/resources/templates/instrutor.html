@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Academia</title>
+<title>Instrutor</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
@@ -9,17 +9,18 @@
 
 	<table border="1" class="pure-table">
 		<tr>
-			<td th:text="${academia.id}" />
-			<td th:text="${academia.nome}" />
+			<td th:text="${instrutor.username}" />
+			<td th:text="${instrutor.nome}" />
 		</tr>
 	</table>
 
 	<br />
 	<br />
-
-	<a th:href="@{|/academia/${academia.id}/aluno/todos|}">Listar Alunos</a>
-	<br />
-	<a th:href="@{|/academia/${academia.id}/instrutor/todos|}">Listar instrutores</a>
 	
+	<table border="1" class="pure-table pure-table-horizontal">
+		<tr th:each="aluno : ${alunos}">
+			<td th:text="${aluno.nome}"></td>
+		</tr>
+	</table>
 </body>
 </html>
