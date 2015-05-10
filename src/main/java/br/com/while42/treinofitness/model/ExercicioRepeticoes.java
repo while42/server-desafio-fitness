@@ -27,4 +27,8 @@ public class ExercicioRepeticoes extends AbstractExercicio {
 	public void setRepeticoes(long repeticoes) {
 		this.repeticoes = repeticoes;
 	}
+	
+	public String getString(){
+		return getNome() + " - " + getRepeticoes() + " repetições";
+	}
 }

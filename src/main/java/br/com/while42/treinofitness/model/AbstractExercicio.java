@@ -44,9 +44,4 @@ public abstract class AbstractExercicio implements Exercicio {
 	public final long getSeries() {
 		return series;
 	}
-	
-	@Override
-	public String toString() {
-		return series + "x " + nome;
-	}
 }

@@ -27,4 +27,8 @@ public class ExercicioTempo extends AbstractExercicio {
 	public void setTempo(double minutos) {
 		this.tempoEmMinutos = minutos;
 	}
+	
+	public String getString(){
+		return getNome() + " - Em " + getTempo() + "min";
+	}
 }

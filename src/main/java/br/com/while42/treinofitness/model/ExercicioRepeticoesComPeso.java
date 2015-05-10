@@ -37,4 +37,8 @@ public class ExercicioRepeticoesComPeso extends AbstractExercicio {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+	
+	public String getString(){
+		return getNome() + " - " + getRepeticoes() + " repetições com " + getPeso() + "kg";
+	}
 }

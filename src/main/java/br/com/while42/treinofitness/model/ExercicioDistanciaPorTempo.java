@@ -3,7 +3,7 @@ package br.com.while42.treinofitness.model;
 import javax.persistence.Entity;
 
 @Entity
-public class ExercicioDistanciaPorTempo extends AbstractExercicio {
+public class ExercicioDistanciaPorTempo extends AbstractExercicio{
 	
 	private double distanciaEmMetros;
 	private double tempoEmMinutos;
@@ -36,5 +36,9 @@ public class ExercicioDistanciaPorTempo extends AbstractExercicio {
 	
 	public void setTempo(double minutos) {
 		this.tempoEmMinutos = minutos;
+	}
+	
+	public String getString(){
+		return getNome() + " - " + getDistancia() + "m";
 	}
 }

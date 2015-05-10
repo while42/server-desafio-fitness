@@ -11,5 +11,4 @@ public interface Exercicio {
 	public abstract void setSeries(long series);
 
 	public abstract long getSeries();
-
 }

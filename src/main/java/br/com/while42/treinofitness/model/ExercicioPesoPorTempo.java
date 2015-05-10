@@ -37,4 +37,8 @@ public class ExercicioPesoPorTempo extends AbstractExercicio {
 	public void setTempo(double minutos) {
 		this.tempoEmMinutos = minutos;
 	}
+	
+	public String getString(){
+		return getNome() + " - " + getPeso() + "kg por " + getTempo() + "mins";
+	}
 }
