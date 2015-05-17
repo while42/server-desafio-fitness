@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.com.while42.treinofitness.model.Logged;
 import br.com.while42.treinofitness.model.Login;
 import br.com.while42.treinofitness.model.Usuario;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
@@ -50,10 +51,10 @@ public class LoginWebController {
 			return new ModelAndView("redirect:/login?error=true");
 		}
 		
-		session.setAttribute("usuarioLogado", usuarioLogado);			
+		session.setAttribute("usuarioLogged", new Logged(usuarioLogado.getId()));			
 		log.info("Login Efetuado - [ID: " + usuarioLogado.getId() + "] [username: " + usuarioLogado.getUsername() + "]");
 		
-		return new ModelAndView("redirect:api/status");
+		return new ModelAndView("redirect:/aluno/");
 	}
 
 }

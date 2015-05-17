@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.controller.web;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.Logged;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @Controller
@@ -25,6 +28,23 @@ public class AlunoWebController {
 		
 		return "aluno-lista";
 	} 
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String alunoLogado(Model model, HttpSession session) {
+		Logged logged = (Logged) session.getAttribute("usuarioLogged");
+		
+		Aluno aluno = alunoRepository.findOne(Long.valueOf(logged.getIdUsuario()));
+		
+		if (aluno != null) {
+			model.addAttribute("aluno", aluno);
+			model.addAttribute("treinos", aluno.getTreinos());
+			model.addAttribute("instrutor", aluno.getInstrutor());
+			model.addAttribute("academia", aluno.getAcademia());
+			return "aluno";
+		}
+
+		return "aluno-inexistente";
+	}
 	
 	@RequestMapping(value = "/{alunoId}", method = RequestMethod.GET)
 	public String aluno(@PathVariable String alunoId, Model model) {
