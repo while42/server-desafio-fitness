@@ -40,8 +40,7 @@
 
 	<table border="1" class="pure-table pure-table-horizontal">
 		<tr th:each="treino : ${treinos}">
-			<td th:text="${treino.nome}"></td>
-
+			<td th:text="${treino.nome}" th:title="${treino.descricao}"></td>
 			<td>
 				<table th:each="exercicio : ${treino.exercicios}">
 					<tr>
