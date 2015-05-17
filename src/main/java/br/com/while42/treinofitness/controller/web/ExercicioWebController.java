@@ -1,5 +1,7 @@
 package br.com.while42.treinofitness.controller.web;
 
+import lombok.extern.log4j.Log4j;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.ExercicioRepository;
 import br.com.while42.treinofitness.repository.TreinoRepository;
 
+@Log4j
 @Controller
 @RequestMapping("/exercicio")
 public class ExercicioWebController {
@@ -40,9 +43,7 @@ public class ExercicioWebController {
 	public String form(@RequestParam Long alunoId, @RequestParam Long treinoId,
 			Model model) {
 		Aluno aluno = alunoRepository.findOne(alunoId);
-
 		Treino treinoQueVaiReceberUmExercicio = treinoRepository.findOne(treinoId);
-		
 		
 		model.addAttribute("aluno", aluno);
 		model.addAttribute("treino", treinoQueVaiReceberUmExercicio);
@@ -55,10 +56,12 @@ public class ExercicioWebController {
 	}
 	
 	
-	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
-	public String exclui(@RequestParam Long treinoId){
-		treinoRepository.delete(treinoId);
-		return "redirect:exercicio/todos";
+	@RequestMapping(value = "/excluir", method = RequestMethod.GET)
+	public String exclui(@RequestParam Long exercicioId){
+		log.debug(" ==============> idExercicio = " + exercicioId);
+		exercicioRepository.delete(exercicioId);
+		log.debug(" --------------> idExercicio = " + exercicioId);
+		return "exercicio-lista";
 		
 	}
 }

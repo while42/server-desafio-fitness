@@ -29,7 +29,7 @@ public class SecurityConfiguration
 		http
         .authorizeRequests()
             .antMatchers("/", "/api", "/api/status", "/resources/**").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
             .and()
         .formLogin()
             .loginPage("/login")
