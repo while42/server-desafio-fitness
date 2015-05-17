@@ -31,6 +31,9 @@ public class InstrutorWebController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String instrutorLogado(Model model, HttpSession session) {
 		Logged logged = (Logged) session.getAttribute("usuarioLogged");
+		if (logged == null) {
+			return "redirect:/login";
+		}
 		
 		Instrutor instrutor = instrutorRepository.findOne(Long.valueOf(logged.getIdUsuario()));
 		

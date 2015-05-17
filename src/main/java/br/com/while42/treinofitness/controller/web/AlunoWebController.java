@@ -32,6 +32,9 @@ public class AlunoWebController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String alunoLogado(Model model, HttpSession session) {
 		Logged logged = (Logged) session.getAttribute("usuarioLogged");
+		if (logged == null) {
+			return "redirect:/login";
+		}
 		
 		Aluno aluno = alunoRepository.findOne(Long.valueOf(logged.getIdUsuario()));
 		

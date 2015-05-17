@@ -30,6 +30,16 @@ public class LoginWebController {
 		return "login";
 	}
 	
+	/*
+	@RequestMapping(name = "/logout/")
+	public ModelAndView efetuaLogout(Model model, HttpSession session) {
+		log.debug("Iniciando metodo: login [method: GET] [value: /efetuaLogout]");
+		
+		session.removeAttribute("usuarioLogged");
+		return new ModelAndView("redirect:/login?logout=true");
+	}
+	*/
+	
 	// TODO: Por algum motivo nao consegui usar o mesmo name do GET
 	@RequestMapping(name = "/efetuaLogin", method = RequestMethod.POST)
 	public ModelAndView efetuaLogin(@ModelAttribute Login login, Model model, HttpSession session) {
