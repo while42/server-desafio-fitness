@@ -22,8 +22,8 @@ public class ExercicioDistanciaPorTempo extends AbstractExercicio{
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public ExercicioDistanciaPorTempo(Treino treino){
-		this("", 0, 0);
 		setTreino(treino);
 	}
 

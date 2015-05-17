@@ -20,8 +20,8 @@ public class ExercicioTempo extends AbstractExercicio {
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
 
+	@SuppressWarnings("deprecation")
 	public ExercicioTempo(Treino treinoQueVaiReceberUmExercicio) {
-		this("", 0);
 		setTreino(treinoQueVaiReceberUmExercicio);
 	}
 

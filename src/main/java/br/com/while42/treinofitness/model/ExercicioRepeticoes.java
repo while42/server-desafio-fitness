@@ -20,8 +20,8 @@ public class ExercicioRepeticoes extends AbstractExercicio {
 		this.repeticoes = repeticoes;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public ExercicioRepeticoes(Treino treino){
-		this("", 0);
 		setTreino(treino);
 	}
 

@@ -22,8 +22,8 @@ public class ExercicioRepeticoesComPeso extends AbstractExercicio {
 		this.peso = peso;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public ExercicioRepeticoesComPeso(Treino treino){
-		this("", 0, 0);
 		setTreino(treino);
 	}
 

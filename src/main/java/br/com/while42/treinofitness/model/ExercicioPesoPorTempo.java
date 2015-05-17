@@ -22,8 +22,8 @@ public class ExercicioPesoPorTempo extends AbstractExercicio {
 		this.tempoEmMinutos = tempoEmMinutos;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public ExercicioPesoPorTempo(Treino treino){
-		this("", 0, 0);
 		setTreino(treino);
 	}
 
