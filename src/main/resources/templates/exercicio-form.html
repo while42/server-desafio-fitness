@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
+	<script type="text/javascript">
+		function showDiv(idCheck){
+			hideAll();
+			document.getElementById(idCheck+"Div").style.display = 'block';	
+	    }
+		
+		function hideAll(){
+	        document.getElementById('exTempoDiv').style.display = 'none';
+	        document.getElementById('exRepeticoesDiv').style.display = 'none';
+	        document.getElementById('exRepeticoesPesoDiv').style.display = 'none';
+	        document.getElementById('exPesoPorTempoDiv').style.display = 'none';
+	        document.getElementById('exDistanciaPorTempoDiv').style.display = 'none';
+	        document.getElementById('exCustomizadoDiv').style.display = 'none';
+		}
+	</script>
+	
+<body onload="hideAll()">
 	<div th:include="header :: topo"></div>
 
 	<table border="1" class="pure-table">
@@ -10,15 +26,54 @@
 		</tr>
 	</table>
 
-	<br />
+	<br />	
 	<br /> 
-	<form th:action="@{/exercicioTempo/save}" th:object="${exercicioTempo}" method="post">
-		Exercicio Nome:
+	
+	<input type="radio" id="exTempo" name="rbExercicio" value="exTempo" onchange="showDiv(this.id)" />Exercicio por tempo <br />
+	<input type="radio" id="exRepeticoes" name="rbExercicio" value="exRepeticoes" onchange="showDiv(this.id)" />Exercicio por repeticoes <br />
+	<input type="radio" id="exRepeticoesPeso" name="rbExercicio" value="exRepeticoesPeso" onchange="showDiv(this.id)"/>Exercicio por repeticoes com peso <br />
+	<input type="radio" id="exPesoPorTempo" name="rbExercicio" value="exPesoTempo" onchange="showDiv(this.id)" />Exercicio peso por tempo <br />
+	<input type="radio" id="exDistanciaPorTempo" name="rbExercicio" value="exDistanciaTempo" onchange="showDiv(this.id)" />Exercicio distancia por tempo <br />
+	<input type="radio" id="exCustomizado" name="rbExercicio" value="exCustomizado" onchange="showDiv(this.id)" />Exercicio customizado <br />
+	
+	<br /><br />
+	<div id="exTempoDiv">
+		<form th:action="@{/exercicioTempo/save}" th:object="${exercicioTempo}" method="post">
+			<b>Exercicio por Tempo </b> <BR />
+			Nome:
+			<input type="text" th:field="*{nome}" />
+			<br /> 
+			
+			Descricao:
+			<input type="text" th:field="*{descricao}" />
+			<br /> 
+			
+			Tempo:
+			<input type="text" th:field="*{tempo}"/>
+			
+			<br />
+			<br />
+			<br />
+			
+			<input type="hidden" th:field="*{treino.id}" /> 
+			<input type="submit" value="Salvar"/>
+			
+		</form>
+	</div>
+	
+	<div id="exRepeticoesDiv">
+		<form th:action="@{/exercicioRepeticoes/save}" th:object="${exercicioRepeticoes}" method="post">
+		<b>Exercicio por repetição </b><BR />
+		Nome:
 		<input type="text" th:field="*{nome}" />
 		<br /> 
 		
-		Tempo:
-		<input type="text" th:field="*{tempo}"/>
+		Descricao:
+		<input type="text" th:field="*{descricao}" />
+		<br /> 
+		
+		Repeticao:
+		<input type="text" th:field="*{repeticoes}"/>
 		
 		<br />
 		<br />
@@ -28,6 +83,107 @@
 		<input type="submit" value="Salvar"/>
 		
 	</form>
+	</div>
+	
+	<div id="exRepeticoesPesoDiv">
+		<form th:action="@{/exercicioRepeticoesComPeso/save}" th:object="${exercicioRepeticoesComPeso}" method="post">
+			<b>Exercicio Repeticão com peso </b><BR />
+			Nome:
+			<input type="text" th:field="*{nome}" />
+			<br /> 
+			
+			Descricao:
+			<input type="text" th:field="*{descricao}" />
+			<br /> 
+			
+			Repeti&ccedil;&atilde;o:
+			<input type="text" th:field="*{repeticoes}"/>
+			
+			Peso:
+			<input type="text" th:field="*{peso}"/>
+			<br />
+			<br />
+			<br />
+			
+			<input type="hidden" th:field="*{treino.id}" /> 
+			<input type="submit" value="Salvar"/>
+			
+		</form>
+	</div>
+	
+	<div id="exPesoPorTempoDiv">
+	<form th:action="@{/exercicioPesoPorTempo/save}" th:object="${exercicioPesoPorTempo}" method="post">
+		<b>Exercicio peso por Tempo </b><BR />
+		Nome:
+		<input type="text" th:field="*{nome}" />
+		<br /> 
+		
+		Descricao:
+		<input type="text" th:field="*{descricao}" />
+		<br /> 
+		
+		Peso:
+		<input type="text" th:field="*{peso}"/>
+		
+		Tempo:
+		<input type="text" th:field="*{tempo}"/>
+		<br />
+		<br />
+		<br />
+		
+		<input type="hidden" th:field="*{treino.id}" /> 
+		<input type="submit" value="Salvar"/>
+		
+	</form>
+	</div>
+	
+	<div id="exDistanciaPorTempoDiv">
+	<form th:action="@{/exercicioDistanciaPorTempo/save}" th:object="${exercicioDistanciaPorTempo}" method="post">
+		<b>Exercicio Distancia por Tempo </b><BR />
+		Nome:
+		<input type="text" th:field="*{nome}" />
+		<br /> 
+		
+		Descricao:
+		<input type="text" th:field="*{descricao}" />
+		<br /> 
+		
+		Distancia:
+		<input type="text" th:field="*{distancia}"/>
+		
+		Tempo:
+		<input type="text" th:field="*{tempo}"/>
+		<br />
+		<br />
+		<br />
+		
+		<input type="hidden" th:field="*{treino.id}" /> 
+		<input type="submit" value="Salvar"/>
+		
+	</form>
+	</div>
+
+	<div id="exCustomizadoDiv">
+	<form th:action="@{/exercicioCustomizado/save}" th:object="${exercicioCustomizado}" method="post">
+		<b>Exercicio Customizado </b><BR />
+		Nome:
+		<input type="text" th:field="*{nome}" />
+		<br /> 
+		
+		Descricao:
+		<input type="text" th:field="*{descricao}" />
+		<br /> 
+		
+		<br />
+		<br />
+		<br />
+		
+		<input type="hidden" th:field="*{treino.id}" /> 
+		<input type="submit" value="Salvar"/>
+		
+	</form>
+	</div>
+	
 	<a th:text="Cancelar" th:href="@{|/aluno/${aluno.id}|}"></a>
 
 
