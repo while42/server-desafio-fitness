@@ -1,10 +1,13 @@
-package br.com.while42.treinofitness.model;
+package br.com.while42.treinofitness.repository;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import br.com.while42.treinofitness.model.treino.Exercicio;
+import br.com.while42.treinofitness.model.treino.Treino;
 
 @Entity
 public abstract class AbstractExercicio implements Exercicio {

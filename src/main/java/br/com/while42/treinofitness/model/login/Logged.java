@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.model;
+package br.com.while42.treinofitness.model.login;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

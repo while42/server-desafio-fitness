@@ -3,6 +3,9 @@ package br.com.while42.treinofitness.model;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.while42.treinofitness.model.treino.Exercicio;
+import br.com.while42.treinofitness.model.treino.ExercicioRepeticoesComPeso;
+
 public class ExercicioTest {
 
 	@Test

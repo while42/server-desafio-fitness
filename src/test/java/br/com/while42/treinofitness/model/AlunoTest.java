@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Treino;
+import br.com.while42.treinofitness.model.treino.Treino;
 
 public class AlunoTest {
 

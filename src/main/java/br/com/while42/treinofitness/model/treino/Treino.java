@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.model;
+package br.com.while42.treinofitness.model.treino;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.repository.AbstractExercicio;
 
 @Entity
 public class Treino {

@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.com.while42.treinofitness.model.Logged;
-import br.com.while42.treinofitness.model.Login;
 import br.com.while42.treinofitness.model.Usuario;
+import br.com.while42.treinofitness.model.login.Logged;
+import br.com.while42.treinofitness.model.login.Login;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
 @Log4j

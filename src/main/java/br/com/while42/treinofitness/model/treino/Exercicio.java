@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.model;
+package br.com.while42.treinofitness.model.treino;
 
 public interface Exercicio {
 

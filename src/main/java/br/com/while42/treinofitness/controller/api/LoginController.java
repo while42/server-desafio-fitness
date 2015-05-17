@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Usuario;
-import br.com.while42.treinofitness.model.Login;
+import br.com.while42.treinofitness.model.login.Login;
 import br.com.while42.treinofitness.repository.UsuarioRepository;
 
 @RestController

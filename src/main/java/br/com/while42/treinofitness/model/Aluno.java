@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import br.com.while42.treinofitness.model.treino.Treino;
+
 @Entity
 public class Aluno extends Usuario {
 

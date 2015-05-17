@@ -12,13 +12,13 @@ import org.springframework.context.annotation.ComponentScan;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.ExercicioDistanciaPorTempo;
-import br.com.while42.treinofitness.model.ExercicioPesoPorTempo;
-import br.com.while42.treinofitness.model.ExercicioRepeticoesComPeso;
-import br.com.while42.treinofitness.model.ExercicioTempo;
 import br.com.while42.treinofitness.model.Instrutor;
 import br.com.while42.treinofitness.model.Status;
-import br.com.while42.treinofitness.model.Treino;
+import br.com.while42.treinofitness.model.treino.ExercicioDistanciaPorTempo;
+import br.com.while42.treinofitness.model.treino.ExercicioPesoPorTempo;
+import br.com.while42.treinofitness.model.treino.ExercicioRepeticoesComPeso;
+import br.com.while42.treinofitness.model.treino.ExercicioTempo;
+import br.com.while42.treinofitness.model.treino.Treino;
 import br.com.while42.treinofitness.repository.AcademiaRepository;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.InstrutorRepository;

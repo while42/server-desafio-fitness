@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Treino;
+import br.com.while42.treinofitness.model.treino.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @RestController

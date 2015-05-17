@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.model.Logged;
+import br.com.while42.treinofitness.model.login.Logged;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @Controller

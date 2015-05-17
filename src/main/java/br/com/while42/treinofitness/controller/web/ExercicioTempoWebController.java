@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import br.com.while42.treinofitness.model.ExercicioTempo;
-import br.com.while42.treinofitness.model.Treino;
+import br.com.while42.treinofitness.model.treino.ExercicioTempo;
+import br.com.while42.treinofitness.model.treino.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.ExercicioRepository;
 import br.com.while42.treinofitness.repository.TreinoRepository;
