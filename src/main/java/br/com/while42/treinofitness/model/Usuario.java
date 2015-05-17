@@ -15,6 +15,7 @@ public class Usuario {
 	
 	private String username;
 	private String nome;
+	private TipoUsuario tipo;
 	private @JsonIgnore String senha;
 	
 	@ManyToOne(cascade=CascadeType.ALL)
@@ -25,9 +26,10 @@ public class Usuario {
 		username = null;
 	}
 	
-	public Usuario(String username, String nome) {
+	public Usuario(String username, String nome, TipoUsuario tipo) {
 		this.username = username;
 		this.nome = nome;
+		this.tipo = tipo;
 	}
 	
 	public Long getId() {
@@ -65,6 +67,10 @@ public class Usuario {
 	
 	public String getNome() {
 		return nome;
+	}
+	
+	public TipoUsuario getTipoUsuario() {
+		return tipo;
 	}
 	
 	public Academia getAcademia() {

@@ -50,8 +50,10 @@ public class TreinoFitnessApplication {
 		aluno.setSenha("aluno@aluno");
 
 		Academia academia = new Academia("Academia");
-		Instrutor instrutor = new Instrutor("Instrutor@Instrutor",
-				"João Treinador");
+		Instrutor instrutor = new Instrutor("instrutor@instrutor",
+				"Treinador Monstro");
+		instrutor.setSenha("instrutor@instrutor");
+		
 		Treino treino1 = new Treino("Treino A", "Aerobico");
 		Treino treino2 = new Treino("Treino B", "Forca");
 
@@ -74,6 +76,9 @@ public class TreinoFitnessApplication {
 
 		aluno.addTreino(treino1);
 		aluno.addTreino(treino2);
+		
+		instrutor.addAluno(aluno);
+		instrutor.setAcademia(academia);
 
 		alunoRepository.save(aluno);
 

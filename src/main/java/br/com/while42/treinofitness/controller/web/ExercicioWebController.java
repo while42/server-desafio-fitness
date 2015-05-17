@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.treino.ExercicioCustomizado;
 import br.com.while42.treinofitness.model.treino.ExercicioDistanciaPorTempo;
 import br.com.while42.treinofitness.model.treino.ExercicioPesoPorTempo;
 import br.com.while42.treinofitness.model.treino.ExercicioRepeticoes;
@@ -51,6 +52,7 @@ public class ExercicioWebController {
 		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo("", 0, 0));
 		model.addAttribute("exercicioRepeticoes" , new ExercicioRepeticoes("", 0, 0));
 		model.addAttribute("exercicioRepeticoesComPeso" , new ExercicioRepeticoesComPeso("", 0, 0));
+		model.addAttribute("exercicioCustomizado" , new ExercicioCustomizado());
 		model.addAttribute("exercicioTempo" , new ExercicioTempo(treinoQueVaiReceberUmExercicio));
 		return "exercicio-form";
 	}

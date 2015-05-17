@@ -10,7 +10,7 @@ public class Administrador extends Usuario {
 	}
 
 	public Administrador(String login, String nome) {
-		super(login, nome);
+		super(login, nome, TipoUsuario.ADMINISTRADOR);
 	}
 
 	@Override

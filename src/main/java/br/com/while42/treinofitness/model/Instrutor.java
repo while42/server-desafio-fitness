@@ -20,7 +20,7 @@ public class Instrutor extends Usuario {
 	}
 
 	public Instrutor(String login, String nome) {
-		super(login, nome);
+		super(login, nome, TipoUsuario.INSTRUTOR);
 	}
 
 	public List<Aluno> getAlunos() {

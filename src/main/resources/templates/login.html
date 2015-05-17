@@ -11,7 +11,7 @@
 	<div th:replace="headerHome :: topo"></div>
 	
 	<div class="container">
-		<form class="form-signin" action="#" th:action="@{/efetuaLogin}" th:object="${login}" method="post" >
+		<form class="form-signin" action="#" th:action="@{/login/efetua}" th:object="${login}" method="post" >
 			<h2 class="form-signin-heading">Please sign in</h2>
 			
 			<div th:if="${param.error}" class="alert alert-error">    
