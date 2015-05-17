@@ -15,6 +15,11 @@ public class ExercicioCustomizado extends AbstractExercicio {
 		setDescricao(descricao);
 	}
 
+	@SuppressWarnings("deprecation")
+	public ExercicioCustomizado(Treino treino){
+		setTreino(treino);
+	}
+	
 	public String getString(){
 		return getNome() + " - " + getDescricao();
 	}
