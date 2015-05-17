@@ -36,6 +36,7 @@
 	<input type="radio" id="exDistanciaPorTempo" name="rbExercicio" value="exDistanciaTempo" onchange="showDiv(this.id)" />Exercicio distancia por tempo <br />
 	<input type="radio" id="exCustomizado" name="rbExercicio" value="exCustomizado" onchange="showDiv(this.id)" />Exercicio customizado <br />
 	
+	<br /><br />
 	<div id="exTempoDiv">
 		<form th:action="@{/exercicioTempo/save}" th:object="${exercicioTempo}" method="post">
 			<b>Exercicio por Tempo </b> <BR />
