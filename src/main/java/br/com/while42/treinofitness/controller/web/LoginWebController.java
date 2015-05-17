@@ -23,25 +23,22 @@ public class LoginWebController {
 	
 	private @Autowired UsuarioRepository usuarioRepository;
 	
-	@RequestMapping(name = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String formLogin(Model model) {
 		log.debug("Iniciando metodo: formLogin [method: GET] [value: /login] ");
 		model.addAttribute("login", new Login()); 
 		return "login";
 	}
 	
-	/*
-	@RequestMapping(name = "/logout/")
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public ModelAndView efetuaLogout(Model model, HttpSession session) {
-		log.debug("Iniciando metodo: login [method: GET] [value: /efetuaLogout]");
+		log.debug("Iniciando metodo: efetuaLogout [method: GET] [value: /logout]");
 		
 		session.removeAttribute("usuarioLogged");
 		return new ModelAndView("redirect:/login?logout=true");
 	}
-	*/
 	
-	// TODO: Por algum motivo nao consegui usar o mesmo name do GET
-	@RequestMapping(name = "/efetuaLogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/login/efetua", method = RequestMethod.POST)
 	public ModelAndView efetuaLogin(@ModelAttribute Login login, Model model, HttpSession session) {
 		log.debug("Iniciando metodo: login [method: POST] [value: /efetuaLogin]");
 		
