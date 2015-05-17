@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.model.treino.ExercicioDistanciaPorTempo;
 import br.com.while42.treinofitness.model.treino.ExercicioPesoPorTempo;
 import br.com.while42.treinofitness.model.treino.ExercicioRepeticoes;
@@ -36,12 +37,14 @@ public class ExercicioWebController {
 	}
 
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
-	public String form(@RequestParam Long treinoId,
+	public String form(@RequestParam Long alunoId, @RequestParam Long treinoId,
 			Model model) {
+		Aluno aluno = alunoRepository.findOne(alunoId);
 
 		Treino treinoQueVaiReceberUmExercicio = treinoRepository.findOne(treinoId);
 		
-		model.addAttribute("aluno", treinoQueVaiReceberUmExercicio.getAluno());
+		
+		model.addAttribute("aluno", aluno);
 		model.addAttribute("treino", treinoQueVaiReceberUmExercicio);
 		model.addAttribute("exercicioDistanciaPorTempo" , new ExercicioDistanciaPorTempo("", 0, 0));
 		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo("", 0, 0));
