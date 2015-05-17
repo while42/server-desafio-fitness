@@ -12,4 +12,6 @@ public interface Exercicio {
 
 	public abstract long getSeries();
 	
+	public abstract String getDescricao();
+	
 }

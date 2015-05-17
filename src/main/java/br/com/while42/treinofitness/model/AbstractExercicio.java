@@ -11,18 +11,11 @@ public abstract class AbstractExercicio implements Exercicio {
 	
 	private @Id @GeneratedValue Long id;
 	private String nome;
+	private String descricao;
 	private long series = MINIMO_SERIES;
 
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
-	
-	public Treino getTreino() {
-		return treino;
-	}
-
-	public void setTreino(Treino treino) {
-		this.treino = treino;
-	}
 
 	@Deprecated
 	public AbstractExercicio() {
@@ -35,6 +28,22 @@ public abstract class AbstractExercicio implements Exercicio {
 	
 	public void setNome(String nome){
 		this.nome = nome;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Treino getTreino() {
+		return treino;
+	}
+	
+	public void setTreino(Treino treino) {
+		this.treino = treino;
 	}
 
 	@Override
