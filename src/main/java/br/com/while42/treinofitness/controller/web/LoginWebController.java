@@ -51,10 +51,10 @@ public class LoginWebController {
 			return new ModelAndView("redirect:/login?error=true");
 		}
 		
-		session.setAttribute("usuarioLogged", new Logged(usuarioLogado.getId()));			
+		session.setAttribute("usuarioLogged", new Logged(usuarioLogado.getId(), usuarioLogado.getTipoUsuario()));			
 		log.info("Login Efetuado - [ID: " + usuarioLogado.getId() + "] [username: " + usuarioLogado.getUsername() + "]");
 		
-		return new ModelAndView("redirect:/aluno/");
+		return new ModelAndView("redirect:" + usuarioLogado.getTipoUsuario().getMapping());
 	}
 
 }
