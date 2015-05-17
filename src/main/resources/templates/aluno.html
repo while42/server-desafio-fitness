@@ -45,6 +45,8 @@
 				<table th:each="exercicio : ${treino.exercicios}">
 					<tr>
 						<td th:text="${exercicio.string}"></td>
+						<td><a th:text="Alterar" th:href="@{|/instrutor/${instrutor.id}|}"></a> </td>
+						<td><a th:text="Excluir" th:href="@{|/exercicio/excluir?treinoId=${treino.id}|}"></a> </td>
 					</tr>
 				</table>
 				<table>

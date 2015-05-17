@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.while42.treinofitness.model.AbstractExercicio;
-import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.model.ExercicioDistanciaPorTempo;
 import br.com.while42.treinofitness.model.ExercicioPesoPorTempo;
 import br.com.while42.treinofitness.model.ExercicioRepeticoes;
@@ -17,6 +16,7 @@ import br.com.while42.treinofitness.model.ExercicioTempo;
 import br.com.while42.treinofitness.model.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.ExercicioRepository;
+import br.com.while42.treinofitness.repository.TreinoRepository;
 
 @Controller
 @RequestMapping("/exercicio")
@@ -24,6 +24,7 @@ public class ExercicioWebController {
 
 	private @Autowired ExercicioRepository exercicioRepository;
 	private @Autowired AlunoRepository alunoRepository;
+	private @Autowired TreinoRepository treinoRepository;
 
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
 	public String all(Model model) {
@@ -35,19 +36,12 @@ public class ExercicioWebController {
 	}
 
 	@RequestMapping(value = "/form", method = RequestMethod.GET)
-	public String form(@RequestParam Long alunoId, @RequestParam Long treinoId,
+	public String form(@RequestParam Long treinoId,
 			Model model) {
-		Aluno aluno = alunoRepository.findOne(alunoId);
 
-		Treino treinoQueVaiReceberUmExercicio = null;
-
-		for (Treino treino : aluno.getTreinos()) {
-			if (treino.getId().equals(treinoId)) {
-				treinoQueVaiReceberUmExercicio = treino;
-			}
-		}
-
-		model.addAttribute("aluno", aluno);
+		Treino treinoQueVaiReceberUmExercicio = treinoRepository.findOne(treinoId);
+		
+		model.addAttribute("aluno", treinoQueVaiReceberUmExercicio.getAluno());
 		model.addAttribute("treino", treinoQueVaiReceberUmExercicio);
 		model.addAttribute("exercicioDistanciaPorTempo" , new ExercicioDistanciaPorTempo("", 0, 0));
 		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo("", 0, 0));
@@ -55,5 +49,13 @@ public class ExercicioWebController {
 		model.addAttribute("exercicioRepeticoesComPeso" , new ExercicioRepeticoesComPeso("", 0, 0));
 		model.addAttribute("exercicioTempo" , new ExercicioTempo(treinoQueVaiReceberUmExercicio));
 		return "exercicio-form";
+	}
+	
+	
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
+	public String exclui(@RequestParam Long treinoId){
+		treinoRepository.delete(treinoId);
+		return "redirect:exercicio/todos";
+		
 	}
 }
