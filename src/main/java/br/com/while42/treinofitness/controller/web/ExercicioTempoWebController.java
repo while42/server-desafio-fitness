@@ -23,8 +23,7 @@ public class ExercicioTempoWebController {
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String save(@ModelAttribute ExercicioTempo exercicioTempo) {
 
-		Treino treino = treinoRepository.findOne(exercicioTempo.getTreino()
-				.getId());
+		Treino treino = treinoRepository.findOne(exercicioTempo.getTreino().getId());
 		treino.addExercicio(exercicioTempo);
 		exercicioTempo.setTreino(treino);
 		exercicioRepository.save(exercicioTempo);
