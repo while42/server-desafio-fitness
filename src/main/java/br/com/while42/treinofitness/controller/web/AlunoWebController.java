@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.com.while42.treinofitness.model.Aluno;
 import br.com.while42.treinofitness.model.login.Logged;
+import br.com.while42.treinofitness.model.treino.Treino;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 
 @Controller
@@ -28,6 +30,19 @@ public class AlunoWebController {
 		
 		return "aluno-lista";
 	} 
+	
+	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	public String form(Model model){
+		model.addAttribute("aluno", new Aluno());
+		return "aluno-form";
+	}
+	
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String salvar(@ModelAttribute Aluno aluno){
+		alunoRepository.save(aluno);
+		return "redirect:/aluno/todos";
+	}
+	
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String alunoLogado(Model model, HttpSession session) {

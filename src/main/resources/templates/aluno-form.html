@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:include="header :: topo"></div>
+	<form th:action="@{/aluno/save}" th:object="${aluno}" method="post">
+		Nome:
+		<input type="text" th:field="*{nome}"/>
+		<br /> 
+		
+		email:
+		<input type="text" th:field="*{username}"/>
+		<br /> 
+		<br />
+		<br />
+		
+		<input type="submit" value="Salvar"/>
+	</form>
+	<a th:text="Cancelar" th:href="@{/aluno/todos}"></a>
+</body>
+</html>
