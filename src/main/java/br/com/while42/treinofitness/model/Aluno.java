@@ -19,9 +19,7 @@ public class Aluno extends Usuario {
 	@OneToMany(cascade=CascadeType.PERSIST)
 	private List<Treino> treinos = new ArrayList<Treino>();
 
-	@Deprecated
 	public Aluno() {
-		
 	}
 
 	public Aluno(String login, String nome) {
