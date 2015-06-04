@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +31,19 @@ public class AcademiaWebController {
 		return "academia-lista";
 	}
 	
+	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	public String academia(Model model) {
+		model.addAttribute("academia", new Academia());
+		return "academia-form";
+	}
+	
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String save(@ModelAttribute Academia academia) {
+		academiaRepository.save(academia);
+		return "redirect:/academia/todos";
+	}
+	
+	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
 	public String academia(@PathVariable String academiaId, Model model) {
 		Academia academia = academiaRepository.findOne(Long.valueOf(academiaId));
@@ -41,19 +55,7 @@ public class AcademiaWebController {
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.DELETE)
 	public String delete(@PathVariable String academiaId) {
 		academiaRepository.delete(Long.valueOf(academiaId));
-		
 		return "redirect:/todos";
-	}
-
-	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-	public String save(@RequestBody Academia academia) {
-		if (academia == null) {
-			// TODO: Falta msg de erro!
-			return "redirect:/aluno/todos";
-		}
-		
-		academia = academiaRepository.save(academia);
-		return "redirect:/aluno/todos";
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
