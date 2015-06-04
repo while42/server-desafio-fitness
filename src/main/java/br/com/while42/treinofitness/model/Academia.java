@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Academia implements Cloneable {
 
 	private @Id @GeneratedValue Long id;
-	private final String nome;
+	private String nome;
 
 	@OneToMany
 	private @JsonIgnore final List<Instrutor> instrutores = new ArrayList<Instrutor>();
@@ -25,7 +25,6 @@ public class Academia implements Cloneable {
 	@OneToMany
 	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 
-	@Deprecated
 	public Academia() {
 		nome = null;
 	}
@@ -40,6 +39,10 @@ public class Academia implements Cloneable {
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Instrutor> getInstrutores() {
