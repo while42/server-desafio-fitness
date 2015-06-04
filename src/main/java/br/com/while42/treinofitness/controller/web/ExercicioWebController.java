@@ -48,11 +48,11 @@ public class ExercicioWebController {
 		
 		model.addAttribute("aluno", aluno);
 		model.addAttribute("treino", treinoQueVaiReceberUmExercicio);
-		model.addAttribute("exercicioDistanciaPorTempo" , new ExercicioDistanciaPorTempo("", 0, 0));
-		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo("", 0, 0));
-		model.addAttribute("exercicioRepeticoes" , new ExercicioRepeticoes("", 0, 0));
-		model.addAttribute("exercicioRepeticoesComPeso" , new ExercicioRepeticoesComPeso("", 0, 0));
-		model.addAttribute("exercicioCustomizado" , new ExercicioCustomizado());
+		model.addAttribute("exercicioDistanciaPorTempo" , new ExercicioDistanciaPorTempo(treinoQueVaiReceberUmExercicio));
+		model.addAttribute("exercicioPesoPorTempo" , new ExercicioPesoPorTempo(treinoQueVaiReceberUmExercicio));
+		model.addAttribute("exercicioRepeticoes" , new ExercicioRepeticoes(treinoQueVaiReceberUmExercicio));
+		model.addAttribute("exercicioRepeticoesComPeso" , new ExercicioRepeticoesComPeso(treinoQueVaiReceberUmExercicio));
+		model.addAttribute("exercicioCustomizado" , new ExercicioCustomizado(treinoQueVaiReceberUmExercicio));
 		model.addAttribute("exercicioTempo" , new ExercicioTempo(treinoQueVaiReceberUmExercicio));
 		return "exercicio-form";
 	}
