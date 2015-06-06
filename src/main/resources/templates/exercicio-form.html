@@ -40,6 +40,7 @@
 	<div id="exTempoDiv">
 		<form th:action="@{/exercicioTempo/save}" th:object="${exercicioTempo}" method="post">
 			<b>Exercicio por Tempo </b> <BR />
+			
 			Nome:
 			<input type="text" th:field="*{nome}" />
 			<br /> 
@@ -49,7 +50,8 @@
 			<br /> 
 			
 			Tempo:
-			<input type="text" th:field="*{tempo}"/>
+			<input type="text" th:field="*{tempo}"/> <span><i>Ex: 30.0</i></span>
+			
 			
 			<br />
 			<br />
@@ -126,7 +128,8 @@
 		<input type="text" th:field="*{peso}"/>
 		
 		Tempo:
-		<input type="text" th:field="*{tempo}"/>
+		<input type="text" th:field="*{tempo}"/> <span><i>Ex: 30.0</i></span>
+		
 		<br />
 		<br />
 		<br />
@@ -152,7 +155,8 @@
 		<input type="text" th:field="*{distancia}"/>
 		
 		Tempo:
-		<input type="text" th:field="*{tempo}"/>
+		<input type="text" th:field="*{tempo}"/> <span><i>Ex: 30.0</i></span>
+		
 		<br />
 		<br />
 		<br />
