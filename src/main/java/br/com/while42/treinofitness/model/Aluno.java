@@ -18,8 +18,10 @@ public class Aluno extends Usuario {
 
 	@OneToMany(cascade=CascadeType.PERSIST)
 	private List<Treino> treinos = new ArrayList<Treino>();
-
+	
+	@Deprecated
 	public Aluno() {
+		super("", "", TipoUsuario.ALUNO);
 	}
 
 	public Aluno(String login, String nome) {
@@ -30,8 +32,12 @@ public class Aluno extends Usuario {
 		return instrutor;
 	}
 
-	public final void setInstrutor(Instrutor instrutor) {
+	public void setInstrutor(Instrutor instrutor) {
 		this.instrutor = instrutor;
+	}
+	
+	public void setAcademia(Academia academia){
+		super.setAcademia(academia);
 	}
 
 	public void addTreino(Treino treino) {
@@ -46,4 +52,18 @@ public class Aluno extends Usuario {
 	public String toString() {
 		return getUsername();
 	}
+	
+	public boolean getHasInstrutor(){
+		if(instrutor != null){
+			return true;
+		}
+		return false;
+	}
+	public boolean getHasAcademia(){
+		if(getAcademia() != null){
+			return true;
+		}
+		return false;
+	}
+
 }

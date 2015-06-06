@@ -19,7 +19,12 @@
 	<table border="1" class="pure-table">
 		<tr>
 			<td>
-				<b>Instrutor:</b> <a th:text="${instrutor.nome}" th:href="@{|/instrutor/${instrutor.id}|}"></a> 
+				<div th:if="${aluno.hasInstrutor}">
+					<b>Instrutor:</b><a  th:text="${instrutor.nome}" th:href="@{|/instrutor/${instrutor.id}|}"></a> 
+				</div>
+				<div th:unless="${aluno.hasInstrutor}">
+					<b>Instrutor: Nao Possui!</b> 
+				</div>
 			</td>
 		</tr>
 	</table>
@@ -30,7 +35,12 @@
 	<table border="1" class="pure-table">
 		<tr>
 			<td>
-				<b>Academia:</b> <a th:text="${academia.nome}" th:href="@{|/academia/${academia.id}|}"></a> 
+				<div th:if="${aluno.hasAcademia}">
+					<b>Academia:</b><a th:text="${academia.nome}" th:href="@{|/academia/${academia.id}|}"></a> 
+				</div>
+				<div th:unless="${aluno.hasAcademia}">
+					<b>Academia: Nao Possui! </b> 
+				</div>
 			</td>
 		</tr>
 	</table>

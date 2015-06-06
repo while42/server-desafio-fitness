@@ -77,7 +77,7 @@ public class Usuario {
 		return academia;
 	}
 	
-	public final void setAcademia(Academia academia) {
+	public void setAcademia(Academia academia) {
 		this.academia = academia;
 	}
 	

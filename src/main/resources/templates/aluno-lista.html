@@ -12,11 +12,12 @@
 			<td th:text="${aluno.id}"></td>
 			<td><a th:text="${aluno.nome}" th:href="@{|/aluno/${aluno.id}|}">
 			</a></td>
-			<td th:text="${aluno.username}"></td>
+			<td><a th:text="Alterar" th:href="@{/aluno/form}"></a></td>
+			<td><a th:href="@{/aluno/form}">Excluir</a></td>
 		</tr>
 	</table>
 	
-	<a th:href="@{/aluno/form}">>Adicionar Aluno</a>
+	<a th:href="@{/aluno/novo}">>Adicionar Aluno</a>
 
 </body>
 </html>
