@@ -11,9 +11,8 @@
 		<input type="text" th:field="*{username}"/>
 		<br />
 		
-		Intrutor:
+		Instrutor:
 		<select name="instrutorId">
-					
   			<option th:each="instrutor : ${instrutores}" 
           			th:value="${instrutor.id}" 
           			th:text="${instrutor.nome}">
@@ -23,7 +22,6 @@
 		
 		Academia:
 		<select name="academiaId">
-			
   			<option th:each="academia : ${academias}" 
           			th:value="${academia.id}" 
           			th:text="${academia.nome}"/>
