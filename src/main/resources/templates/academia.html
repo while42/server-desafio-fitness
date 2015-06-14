@@ -20,6 +20,8 @@
 	<a th:href="@{|/academia/${academia.id}/aluno/todos|}">Listar Alunos</a>
 	<br />
 	<a th:href="@{|/academia/${academia.id}/instrutor/todos|}">Listar instrutores</a>
+	<br />
+	<a th:text="Excluir" th:href="@{|/academia/excluir?academiaId=${academia.id}|}"></a>
 	
 </body>
 </html>

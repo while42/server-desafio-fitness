@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div th:include="header :: topo"></div>
-	<form th:action="@{/academia/save}" th:object="${academia}" method="post">
+	<form th:action="@{/academia/salvar}" th:object="${academia}" method="post">
 		Nome:
 		<input type="text" th:field="*{nome}"/>
 		<br /> 

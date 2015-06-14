@@ -27,7 +27,7 @@ public class Academia implements Cloneable {
 
 	@Deprecated
 	public Academia() {
-		nome = null;
+		nome = "";
 	}
 	
 	public Academia(String nome) {

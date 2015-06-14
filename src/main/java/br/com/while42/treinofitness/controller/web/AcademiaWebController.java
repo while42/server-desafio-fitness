@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.while42.treinofitness.model.Academia;
 import br.com.while42.treinofitness.model.Aluno;
@@ -24,24 +25,22 @@ public class AcademiaWebController {
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
 	public String lista(Model model){
 		Iterable<Academia> academias = academiaRepository.findAll();
-		
 		model.addAttribute("academias", academias);
-		
 		return "academia-lista";
 	}
 	
-	@RequestMapping(value = "/form", method = RequestMethod.GET)
+	@SuppressWarnings("deprecation")
+	@RequestMapping(value = "/novo", method = RequestMethod.GET)
 	public String academia(Model model) {
 		model.addAttribute("academia", new Academia());
 		return "academia-form";
 	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
 	public String save(@ModelAttribute Academia academia) {
 		academiaRepository.save(academia);
 		return "redirect:/academia/todos";
 	}
-	
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
 	public String academia(@PathVariable String academiaId, Model model) {
@@ -51,10 +50,16 @@ public class AcademiaWebController {
 		return "academia";
 	}
 	
-	@RequestMapping(value = "/{academiaId}", method = RequestMethod.DELETE)
-	public String delete(@PathVariable String academiaId) {
-		academiaRepository.delete(Long.valueOf(academiaId));
-		return "redirect:/todos";
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String academiaDoLogin(Model model) {
+		// TODO
+		return "academia";
+	}
+	
+	@RequestMapping(value = "/excluir", method = RequestMethod.POST)
+	public String deletaAcademia(@RequestParam Long academiaId, Model model) {
+		academiaRepository.delete(academiaId);
+		return "redirect:/academia/todos";
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
