@@ -25,10 +25,10 @@ public class Academia implements Cloneable {
 	private Gerente gerente;
 	
 	@OneToMany
-	private @JsonIgnore final List<Instrutor> instrutores = new ArrayList<Instrutor>();
+	private @JsonIgnore List<Instrutor> instrutores = new ArrayList<Instrutor>();
 	
 	@OneToMany
-	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
+	private @JsonIgnore List<Aluno> alunos = new ArrayList<Aluno>();
 	
 
 	private @JsonIgnore boolean deletado = false;
@@ -113,6 +113,14 @@ public class Academia implements Cloneable {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public void setInstrutores(List<Instrutor> instrutores) {
+		this.instrutores = instrutores;
 	}
 
 }

@@ -53,12 +53,10 @@ public class AcademiaWebController {
 	public String salvar(@ModelAttribute Academia academia) {
 		if(academia.getId() != null){
 			Academia academiaComDadosAntigos = academiaRepository.findOne(academia.getId());
-			academiaComDadosAntigos.setNome(academia.getNome());
-			academiaComDadosAntigos.setEndereco(academia.getEndereco());
-			academiaRepository.save(academiaComDadosAntigos);
-		} else {
-			academiaRepository.save(academia);
+			academia.setAlunos(academiaComDadosAntigos.getAlunos());
+			academia.setInstrutores(academiaComDadosAntigos.getInstrutores());
 		}
+		academiaRepository.save(academia);
 		return "redirect:/academia/todos";
 	}
 	
