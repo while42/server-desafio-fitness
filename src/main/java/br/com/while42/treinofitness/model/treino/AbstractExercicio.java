@@ -1,4 +1,4 @@
-package br.com.while42.treinofitness.repository;
+package br.com.while42.treinofitness.model.treino;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -6,8 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import br.com.while42.treinofitness.model.treino.Exercicio;
-import br.com.while42.treinofitness.model.treino.Treino;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public abstract class AbstractExercicio implements Exercicio {
@@ -20,6 +19,16 @@ public abstract class AbstractExercicio implements Exercicio {
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Treino treino;
 
+	private @JsonIgnore boolean deletado = false;
+	
+	public boolean isDeletado() {
+		return deletado;
+	}
+
+	public void setDeletado(boolean deletado) {
+		this.deletado = deletado; 
+	}
+	
 	@Deprecated
 	public AbstractExercicio() {
 	}

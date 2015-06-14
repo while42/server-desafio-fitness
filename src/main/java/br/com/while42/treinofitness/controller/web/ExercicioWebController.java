@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import br.com.while42.treinofitness.model.Aluno;
+import br.com.while42.treinofitness.model.treino.AbstractExercicio;
 import br.com.while42.treinofitness.model.treino.ExercicioCustomizado;
 import br.com.while42.treinofitness.model.treino.ExercicioDistanciaPorTempo;
 import br.com.while42.treinofitness.model.treino.ExercicioPesoPorTempo;
@@ -17,7 +18,6 @@ import br.com.while42.treinofitness.model.treino.ExercicioRepeticoes;
 import br.com.while42.treinofitness.model.treino.ExercicioRepeticoesComPeso;
 import br.com.while42.treinofitness.model.treino.ExercicioTempo;
 import br.com.while42.treinofitness.model.treino.Treino;
-import br.com.while42.treinofitness.repository.AbstractExercicio;
 import br.com.while42.treinofitness.repository.AlunoRepository;
 import br.com.while42.treinofitness.repository.ExercicioRepository;
 import br.com.while42.treinofitness.repository.TreinoRepository;

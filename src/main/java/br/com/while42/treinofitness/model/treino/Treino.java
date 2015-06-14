@@ -10,8 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.while42.treinofitness.model.Aluno;
-import br.com.while42.treinofitness.repository.AbstractExercicio;
 
 @Entity
 public class Treino {
@@ -27,6 +28,16 @@ public class Treino {
 	@ManyToOne(cascade=CascadeType.PERSIST)
 	private Aluno aluno;
 
+	private @JsonIgnore boolean deletado = false;
+	
+	public boolean isDeletado() {
+		return deletado;
+	}
+
+	public void setDeletado(boolean deletado) {
+		this.deletado = deletado; 
+	}
+	
 	@Deprecated
 	public Treino() {
 	}
