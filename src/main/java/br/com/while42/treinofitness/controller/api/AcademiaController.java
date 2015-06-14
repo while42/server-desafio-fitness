@@ -23,23 +23,23 @@ public class AcademiaController {
 	private @Autowired AcademiaRepository academiaRepository;
 
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public ResponseEntity<Iterable<Academia>> lista(){
+	public ResponseEntity<Iterable<Academia>> listaAcademias(){
 		return new ResponseEntity<Iterable<Academia>>(academiaRepository.findAll(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
-	public ResponseEntity<Academia> academia(@PathVariable String academiaId) {
-		return new ResponseEntity<Academia>(academiaRepository.findOne(Long.valueOf(academiaId)), HttpStatus.OK);
+	public ResponseEntity<Academia> academia(@PathVariable Long academiaId) {
+		return new ResponseEntity<Academia>(academiaRepository.findOne(academiaId), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.DELETE)
-	public ResponseEntity<?> delete(@PathVariable String academiaId) {
-		academiaRepository.delete(Long.valueOf(academiaId));
+	public ResponseEntity<?> deletaAcademia(@PathVariable Long academiaId) {
+		academiaRepository.delete(academiaId);
 		return new ResponseEntity<>(null, HttpStatus.OK);
 	}
 
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-	public ResponseEntity<?> save(@RequestBody Academia academia) {
+	public ResponseEntity<?> salvar(@RequestBody Academia academia) {
 		if (academia == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -51,12 +51,12 @@ public class AcademiaController {
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
-	public ResponseEntity<List<Aluno>> alunos(@PathVariable String academiaId) {
-		return new ResponseEntity<List<Aluno>>(academiaRepository.findOne(Long.valueOf(academiaId)).getAlunos(), HttpStatus.OK);
+	public ResponseEntity<List<Aluno>> alunosDaAcademia(@PathVariable Long academiaId) {
+		return new ResponseEntity<List<Aluno>>(academiaRepository.findOne(academiaId).getAlunos(), HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/{academiaId}/instrutor/todos", method = RequestMethod.GET)
-	public ResponseEntity<List<Instrutor>> instrutores(@PathVariable String academiaId) {
-		return new ResponseEntity<List<Instrutor>>(academiaRepository.findOne(Long.valueOf(academiaId)).getInstrutores(), HttpStatus.OK);
+	public ResponseEntity<List<Instrutor>> instrutoresDaAcademia(@PathVariable Long academiaId) {
+		return new ResponseEntity<List<Instrutor>>(academiaRepository.findOne(academiaId).getInstrutores(), HttpStatus.OK);
 	}
 }

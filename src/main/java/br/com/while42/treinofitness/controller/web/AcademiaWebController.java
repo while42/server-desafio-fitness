@@ -23,7 +23,7 @@ public class AcademiaWebController {
 	private @Autowired AcademiaRepository academiaRepository;
 	
 	@RequestMapping(value = "/todos", method = RequestMethod.GET)
-	public String lista(Model model){
+	public String listaAcademias(Model model){
 		Iterable<Academia> academias = academiaRepository.findAll();
 		model.addAttribute("academias", academias);
 		return "academia-lista";
@@ -31,20 +31,32 @@ public class AcademiaWebController {
 	
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/novo", method = RequestMethod.GET)
-	public String academia(Model model) {
+	public String formNovaAcademia(Model model) {
 		model.addAttribute("academia", new Academia());
 		return "academia-form";
 	}
 	
+	@RequestMapping(value = "/{academiaId}/editar", method = RequestMethod.GET)
+	public String formEditarAcademia(@PathVariable Long academiaId, Model model) {
+		Academia academia = academiaRepository.findOne(Long.valueOf(academiaId));
+		
+		if (academia == null) {
+			// TODO: Falta tratar o caso da acadmia nao existir mais
+		}
+		
+		model.addAttribute("academia", academia);
+		return "academia-form";
+	}
+	
 	@RequestMapping(value = "/salvar", method = RequestMethod.POST)
-	public String save(@ModelAttribute Academia academia) {
+	public String salvar(@ModelAttribute Academia academia) {
 		academiaRepository.save(academia);
 		return "redirect:/academia/todos";
 	}
 	
 	@RequestMapping(value = "/{academiaId}", method = RequestMethod.GET)
-	public String academia(@PathVariable String academiaId, Model model) {
-		Academia academia = academiaRepository.findOne(Long.valueOf(academiaId));
+	public String academia(@PathVariable Long academiaId, Model model) {
+		Academia academia = academiaRepository.findOne(academiaId);
 		
 		model.addAttribute("academia", academia);
 		return "academia";
@@ -63,18 +75,18 @@ public class AcademiaWebController {
 	}
 	
 	@RequestMapping(value = "/{academiaId}/aluno/todos", method = RequestMethod.GET)
-	public String alunos(@PathVariable String academiaId, Model model) {
+	public String alunosDaAcademia(@PathVariable Long academiaId, Model model) {
 		
-		List<Aluno> alunos = academiaRepository.findOne(Long.valueOf(academiaId)).getAlunos();
+		List<Aluno> alunos = academiaRepository.findOne(academiaId).getAlunos();
 		
 		model.addAttribute("alunos", alunos);
 		return "aluno-lista";
 	}
 	
 	@RequestMapping(value = "/{academiaId}/instrutor/todos", method = RequestMethod.GET)
-	public String instrutores(@PathVariable String academiaId, Model model) {
+	public String instrutoresDaAcademia(@PathVariable Long academiaId, Model model) {
 		
-		List<Instrutor> instrutores = academiaRepository.findOne(Long.valueOf(academiaId)).getInstrutores();
+		List<Instrutor> instrutores = academiaRepository.findOne(academiaId).getInstrutores();
 		
 		model.addAttribute("instrutores", instrutores);
 		return "instrutor-lista";
