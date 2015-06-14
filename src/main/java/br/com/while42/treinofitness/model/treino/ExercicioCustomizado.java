@@ -2,8 +2,6 @@ package br.com.while42.treinofitness.model.treino;
 
 import javax.persistence.Entity;
 
-import br.com.while42.treinofitness.repository.AbstractExercicio;
-
 @Entity
 public class ExercicioCustomizado extends AbstractExercicio {
 	

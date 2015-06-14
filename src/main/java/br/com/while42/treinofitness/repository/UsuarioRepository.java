@@ -13,11 +13,16 @@ public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 	<S extends Usuario> S save(S s);
 
 	@Override
-	void delete(Long aLong);
+	@Query("select u from Usuario u where u.deletado = 'false'")
+	public Iterable<Usuario> findAll();
+	
+	@Override
+	@Query("update Usuario set deletado = 'true' where id = :id")
+	void delete(@Param("id") Long id);
 
-	@Query("select u from Usuario u where u.username = :username")
+	@Query("select u from Usuario u where u.username = :username and u.deletado = 'false'")
 	Usuario findByUsername(@Param("username") String username);
 	
-	@Query("select u from Usuario u where u.username = :username and u.senha = :senha")
+	@Query("select u from Usuario u where u.username = :username and u.senha = :senha and u.deletado = 'false'")
 	Usuario findOneByUsernameAndSenha(@Param("username") String username, @Param("senha") String senha);
 }

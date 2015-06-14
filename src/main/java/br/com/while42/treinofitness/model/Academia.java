@@ -31,6 +31,16 @@ public class Academia implements Cloneable {
 	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
 	
 
+	private @JsonIgnore boolean deletado = false;
+	
+	public boolean isDeletado() {
+		return deletado;
+	}
+
+	public void setDeletado(boolean deletado) {
+		this.deletado = deletado; 
+	}
+	
 	@Deprecated
 	public Academia() {
 		nome = "";

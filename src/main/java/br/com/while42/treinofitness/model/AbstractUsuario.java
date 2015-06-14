@@ -15,7 +15,17 @@ public class AbstractUsuario {
 	private String nome = "";
 	private TipoUsuario tipo;
 	private @JsonIgnore String senha;
+	
+	private @JsonIgnore boolean deletado = false;
 		
+	public boolean isDeletado() {
+		return deletado;
+	}
+
+	public void setDeletado(boolean deletado) {
+		this.deletado = deletado; 
+	}
+
 	@Deprecated
 	AbstractUsuario() {
 	}
