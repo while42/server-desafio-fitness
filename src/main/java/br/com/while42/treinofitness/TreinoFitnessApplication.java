@@ -1,6 +1,8 @@
 package br.com.while42.treinofitness;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 
 import lombok.extern.log4j.Log4j;
 
@@ -8,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.ServletContextInitializer;
 import org.springframework.context.annotation.ComponentScan;
 
 import br.com.while42.treinofitness.model.Academia;
@@ -29,7 +32,7 @@ import br.com.while42.treinofitness.repository.InstrutorRepository;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan
-public class TreinoFitnessApplication {
+public class TreinoFitnessApplication implements ServletContextInitializer {
 
 	private @Autowired AlunoRepository alunoRepository;
 	private @Autowired InstrutorRepository instrutorRepository;
@@ -38,6 +41,11 @@ public class TreinoFitnessApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(TreinoFitnessApplication.class, args);
 		log.info("Aplicacao iniciada");
+	}
+
+	@Override
+	public void onStartup(ServletContext servletContext) throws ServletException {
+		 servletContext.getSessionCookieConfig().setName(SecurityConfiguration.SESSIONCOOKIENAME);
 	}
 
 	@PostConstruct
@@ -147,4 +155,5 @@ public class TreinoFitnessApplication {
 		
 		// SecurityContextHolder.clearContext();
 	}
+
 }

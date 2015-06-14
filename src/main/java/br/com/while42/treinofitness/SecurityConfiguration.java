@@ -9,14 +9,13 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 
 @Configuration
 @EnableWebMvcSecurity
-public class SecurityConfiguration 
- extends WebSecurityConfigurerAdapter 
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter 
 {
-
+	public static final String SESSIONCOOKIENAME = "TREINOFITNESSID";
+	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth)
 			throws Exception {
-
 	}
 
 	@Override
@@ -29,15 +28,20 @@ public class SecurityConfiguration
 		http
         .authorizeRequests()
             .antMatchers("/", "/api", "/api/status", "/resources/**").permitAll()
-            .anyRequest().permitAll()
-            .and()
-        .formLogin()
+            .anyRequest().permitAll();
+
+		http
+		.formLogin()
             .loginPage("/login")
-            .permitAll()
-            .and()
+            .permitAll();
+		
+		http
         .logout()
             .permitAll()
-            .and()
+            .invalidateHttpSession( true )
+            .deleteCookies(SESSIONCOOKIENAME);
+		
+		http
         .csrf()
             .disable();;
             
