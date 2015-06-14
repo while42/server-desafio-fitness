@@ -3,8 +3,13 @@
 <body>
 	<div th:include="header :: topo"></div>
 	<form th:action="@{/academia/salvar}" th:object="${academia}" method="post">
+		<input type="hidden" th:field="*{id}" th:value="${academia.id}"/>
 		Nome:
 		<input type="text" th:field="*{nome}"/>
+		<br />
+		
+		Endereco:
+		<input type="text" th:field="*{endereco}"/>
 		<br /> 
 		<br />
 		<br />

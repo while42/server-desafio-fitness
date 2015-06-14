@@ -9,8 +9,8 @@
 
 	<table border="1" class="pure-table">
 		<tr>
-			<td th:text="${academia.id}" />
 			<td th:text="${academia.nome}" />
+			<td th:text="${academia.endereco}" />
 		</tr>
 	</table>
 
@@ -21,7 +21,9 @@
 	<br />
 	<a th:href="@{|/academia/${academia.id}/instrutor/todos|}">Listar instrutores</a>
 	<br />
-	<a th:text="Excluir" th:href="@{|/academia/excluir?academiaId=${academia.id}|}"></a>
+	<a th:text="Editar" th:href="@{|/academia/${academia.id}/editar|}"></a>
+	<br />
+	<a th:text="Excluir" th:href="@{|/academia/${academia.id}/excluir|}"></a>
 	
 </body>
 </html>

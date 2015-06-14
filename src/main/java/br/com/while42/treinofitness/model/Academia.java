@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.extern.log4j.Log4j;
 
@@ -17,13 +18,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Academia implements Cloneable {
 
 	private @Id @GeneratedValue Long id;
-	private final String nome;
+	private String nome;
+	private String endereco;
 
+	@OneToOne
+	private Gerente gerente;
+	
 	@OneToMany
 	private @JsonIgnore final List<Instrutor> instrutores = new ArrayList<Instrutor>();
 	
 	@OneToMany
 	private @JsonIgnore final List<Aluno> alunos = new ArrayList<Aluno>();
+	
 
 	@Deprecated
 	public Academia() {
@@ -37,9 +43,18 @@ public class Academia implements Cloneable {
 	public Long getId() {
 		return id;
 	}
+	
+	@Deprecated
+	public void setId(Long id){
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Instrutor> getInstrutores() {
@@ -69,10 +84,25 @@ public class Academia implements Cloneable {
 		return alunos;
 	}
 
-	
 	@Override
 	public String toString() {
 		return getNome();
+	}
+
+	public Gerente getGerente() {
+		return gerente;
+	}
+
+	public void setGerente(Gerente gerente) {
+		this.gerente = gerente;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 }
