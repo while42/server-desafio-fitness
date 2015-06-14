@@ -3,6 +3,7 @@ package br.com.while42.treinofitness.model;
 public enum TipoUsuario {
 	ALUNO("/aluno/"),
 	INSTRUTOR("/instrutor/"),
+	GERENTE("/gerente"),
 	ADMINISTRADOR("/admin/");
 	
 	private String mapping;
