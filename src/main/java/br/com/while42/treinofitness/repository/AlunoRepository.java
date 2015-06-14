@@ -1,5 +1,6 @@
 package br.com.while42.treinofitness.repository;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,6 +14,7 @@ public interface AlunoRepository extends CrudRepository<Aluno, Long> {
 	public Iterable<Aluno> findAll();
 	
 	@Override
+	@Modifying
 	@Query("update Aluno set deletado = 'true' where id = :id")
 	void delete(@Param("id") Long id);
 }
